@@ -98,13 +98,13 @@ Variable 2
 ```
 
 ## 3.3 Visualize temporal variation
-
+Make own variable that shows our relation and plot it over time.
 ```{r}
 
 ```
 
 ## 3.4 Visualize spatial variation
-
+Compare/merge two maps, one with the level of education of a province and one with the proportion of migrants/people with a migration background living there
 ```{r visualise_map}
 
 ```
@@ -112,7 +112,7 @@ Variable 2
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
 ## 3.5 Visualize sub-population variation
-
+Comparison between the difference in education level between different ages.
 What is the poverty rate by state?
 
 ```{r visualise_subpopulations}
@@ -134,7 +134,7 @@ ggplot(dataset, aes(x = inmetro, y = percadultpoverty)) +
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
 ## 3.6 Event analysis
-
+Find some kind of event in order to show changes caused by this event:
 Analyze the relationship between two variables.
 
 ```{r analysis}
@@ -146,9 +146,9 @@ Here you provide a description of why the plot above is relevant to your specifi
 # Part 4 - Discussion
 
 ## 4.1 Discuss your findings
-
+Discuss the findings from all the analyses and draw somewhat of a conclusion whether our hypothesis was right.
 # Part 5 - Reproducibility
-
+make sure that if someone were to reproduce our work, a change in packages would not matter as the information of which packages we used when is clear.
 ## 5.1 Github repository link
 
 Provide the link to your PUBLIC repository here: ...
