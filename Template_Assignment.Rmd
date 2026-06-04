@@ -21,11 +21,11 @@ require(yaml)
 
 # Title Page
 
-Include your names
+Tamara Bakker, Rik de Bruijn, Joep Hagendoorn, Lize den Hertog, Isabelle Stankovski and Nienke Wielstra
 
-Include the tutorial group number
+Tutorial group 2-1
 
-Include your tutorial lecturer's name
+Fatima Amankour
 
 # Part 1 - Identify a Social Problem
 
