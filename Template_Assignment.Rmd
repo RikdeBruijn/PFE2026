@@ -33,11 +33,7 @@ Use APA referencing throughout your document. [Here's a link to some explanation
 
 ## 1.1 Describe the Social Problem
 
-Include the following:
-
-- Why is this relevant?
-
-- ...
+Explain why this is is a social problem and what the problem is.
 
 # Part 2 - Data Sourcing
 
