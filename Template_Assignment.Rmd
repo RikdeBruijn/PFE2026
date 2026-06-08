@@ -1,6 +1,6 @@
 ---
 title: "Correlation between migration background and education level"
-author: "Tamara Bakker 2695715, Rik de Bruijn 2894496, Joep Hagendoorn 2893599, Lize den Hertog 2889649, Isabelle Stankovski and Nienke Wielstra"
+author: "Tamara Bakker 2695715, Rik de Bruijn 2894496, Joep Hagendoorn 2893599, Lize den Hertog 2889649, Isabelle Stankovski and Nienke Wielstra 2896111"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
