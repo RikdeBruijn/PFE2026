@@ -23,6 +23,8 @@ require(yaml)
 
 Tamara Bakker, Rik de Bruijn, Joep Hagendoorn, Lize den Hertog, Isabelle Stankovski and Nienke Wielstra
 
+test
+
 Tutorial group 2-1
 
 Fatima Amankour
@@ -129,6 +131,8 @@ ggplot(dataset, aes(x = inmetro, y = percadultpoverty)) +
   theme(
     legend.position = "right"
   )
+
+
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
