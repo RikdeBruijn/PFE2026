@@ -45,6 +45,7 @@ Preferably from a URL, but if not, make sure to download the data and store it i
 
 ```{r loading_data}
 edu_mig_dataset <-read.csv("data/Bevolking_onderwijs_migratie_achtergrond_08062026_141459.csv", sep=";")
+reg_mig_dataset <- read_xlsx("data/Ranglijst van de migratieachtergrond van inwoners per provincie in Nederland.xlsx")
 ```
 
 midwest is an example dataset included in the tidyverse package
