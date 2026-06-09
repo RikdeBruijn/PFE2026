@@ -23,8 +23,6 @@ require(yaml)
 
 Tamara Bakker, Rik de Bruijn, Joep Hagendoorn, Lize den Hertog and Isabelle Stankovski
 
-test test
-
 Tutorial group 2-1
 
 Fatima Amankour
