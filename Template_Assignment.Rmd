@@ -21,7 +21,7 @@ require(yaml)
 
 # Title Page
 
-Tamara Bakker, Rik de Bruijn, Joep Hagendoorn, Lize den Hertog, Isabelle Stankovski and Nienke Wielstra
+Tamara Bakker, Rik de Bruijn, Joep Hagendoorn, Lize den Hertog and Isabelle Stankovski
 
 test test
 
