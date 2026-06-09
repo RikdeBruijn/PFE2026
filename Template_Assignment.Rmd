@@ -54,8 +54,22 @@ midwest is an example dataset included in the tidyverse package
 
 ## 2.2 Provide a short summary of the dataset(s)
 
+### Summary dataset on education level and migration background
+
 ```{r}
-head(dataset)
+summary(edu_mig_dataset)
+```
+
+### Summary dataset on migration background percentage per region
+
+```{r}
+summary(reg_mig_dataset)
+```
+
+### Summary dataset on education level per region
+
+```{r}
+summary(reg_edu_dataset)
 ```
 
 In this case we see 28 variables, but we miss some information on what units they are in. We also don't know anything about the year/moment in which this data has been captured.
@@ -103,13 +117,17 @@ Variable 2
 ```
 
 ## 3.3 Visualize temporal variation
+
 Make own variable that shows our relation and plot it over time.
+
 ```{r}
 
 ```
 
 ## 3.4 Visualize spatial variation
+
 Compare/merge two maps, one with the level of education of a province and one with the proportion of migrants/people with a migration background living there
+
 ```{r visualise_map}
 
 ```
@@ -117,8 +135,8 @@ Compare/merge two maps, one with the level of education of a province and one wi
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
 ## 3.5 Visualize sub-population variation
-Comparison between the difference in education level between different ages.
-What is the poverty rate by state?
+
+Comparison between the difference in education level between different ages. What is the poverty rate by state?
 
 ```{r visualise_subpopulations}
 dataset$inmetro <- dataset$inmetro %>% as.factor()
@@ -141,8 +159,8 @@ ggplot(dataset, aes(x = inmetro, y = percadultpoverty)) +
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
 ## 3.6 Event analysis
-Find some kind of event in order to show changes caused by this event:
-Analyze the relationship between two variables.
+
+Find some kind of event in order to show changes caused by this event: Analyze the relationship between two variables.
 
 ```{r analysis}
 
@@ -153,10 +171,8 @@ Here you provide a description of why the plot above is relevant to your specifi
 # Part 4 - Discussion
 
 ## 4.1 Discuss your findings
-Discuss the findings from all the analyses and draw somewhat of a conclusion whether our hypothesis was right.
-# Part 5 - Reproducibility
-make sure that if someone were to reproduce our work, a change in packages would not matter as the information of which packages we used when is clear.
-## 5.1 Github repository link
+
+Discuss the findings from all the analyses and draw somewhat of a conclusion whether our hypothesis was right. \# Part 5 - Reproducibility make sure that if someone were to reproduce our work, a change in packages would not matter as the information of which packages we used when is clear. \## 5.1 Github repository link
 
 Provide the link to your PUBLIC repository here: ...
 
