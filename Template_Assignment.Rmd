@@ -100,6 +100,16 @@ Say we want to include only larger distances (above 2) in our dataset, we can fi
 edu_mig_dataset$Geslacht <- replace(edu_mig_dataset$Geslacht, 
                                     edu_mig_dataset$Geslacht == "T001038", 
                                     "totaal mannen en vrouwen")
+edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$leeftijd == "20150", "15 jaar of ouder")
+edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd=="21600", "75 jaar of ouder")
+edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd=="52052","15 tot 75 jaar")
+edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd=="53050","15 tot 25 jaar")
+edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd== "53500","25 tot 35 jaar")
+edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd== "53700", "35 tot 45 jaar")
+edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd== "53800", "45 tot 55 jaar")
+edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd=="53900","55 tot 65 jaar")
+edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd=="53925","65 to 75 jaar")
+
 
 
 ```
