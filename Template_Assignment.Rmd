@@ -100,7 +100,7 @@ Say we want to include only larger distances (above 2) in our dataset, we can fi
 edu_mig_dataset$Geslacht <- replace(edu_mig_dataset$Geslacht, 
                                     edu_mig_dataset$Geslacht == "T001038", 
                                     "totaal mannen en vrouwen")
-edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$leeftijd == "20150", "15 jaar of ouder")
+edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd, str_detect(edu_mig_dataset$Leeftijd, "20150",), "15 jaar of ouder")
 edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd=="21600", "75 jaar of ouder")
 edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd=="52052","15 tot 75 jaar")
 edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd=="53050","15 tot 25 jaar")
@@ -109,6 +109,19 @@ edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Lee
 edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd== "53800", "45 tot 55 jaar")
 edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd=="53900","55 tot 65 jaar")
 edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd=="53925","65 to 75 jaar")
+
+edu_mig_dataset$Migratieachtergrond <- replace(edu_mig_dataset$Migratieachtergrond,edu_mig_dataset$Migratieachtergrond== "1012600", "Nederlandse achtergrond")
+edu_mig_dataset$Migratieachtergrond <- replace(edu_mig_dataset$Migratieachtergrond,edu_mig_dataset$Migratieachtergrond== "2012605","Met migratieachtergrond")
+edu_mig_dataset$Migratieachtergrond <- replace(edu_mig_dataset$Migratieachtergrond,edu_mig_dataset$Migratieachtergrond=="2012655","Westerse migratieachtergrond")
+edu_mig_dataset$Migratieachtergrond<- replace(edu_mig_dataset$Migratieachtergrond, edu_mig_dataset$Migratieachtergrond== "2012657","Niet-westerse migratieachtergrond")
+edu_mig_dataset$Migratieachtergrond<- replace(edu_mig_dataset$Migratieachtergrond,edu_mig_dataset$Migratieachtergrond=="2012659","onbekende migratieachtergrond")
+edu_mig_dataset$Migratieachtergrond<- replace(edu_mig_dataset$Migratieachtergrond,edu_mig_dataset$Migratieachtergrond=="T001040","Totaal")
+edu_mig_dataset$Migratieachtergrond<- replace(edu_mig_dataset$Migratieachtergrond,edu_mig_dataset$Migratieachtergrond=="H008673","Marokko")
+edu_mig_dataset$Migratieachtergrond<- replace(edu_mig_dataset$Migratieachtergrond,edu_mig_dataset$Migratieachtergrond=="H008766","Turkije")
+edu_mig_dataset$Migratieachtergrond<- replace(edu_mig_dataset$Migratieachtergrond,edu_mig_dataset$Migratieachtergrond=="H008751", "Suriname")
+edu_mig_dataset$Migratieachtergrond<- replace(edu_mig_dataset$Migratieachtergrond,edu_mig_dataset$Migratieachtergrond=="H007119","(voormalige) Nederlandse Antillen, Aruba")
+edu_mig_dataset$Migratieachtergrond<- replace(edu_mig_dataset$Migratieachtergrond,edu_mig_dataset$Migratieachtergrond== "A008187","Overige niet-westerse migratieachgergrond ")
+
 
 
 
