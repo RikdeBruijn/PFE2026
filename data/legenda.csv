@@ -1,0 +1,267 @@
+﻿"TableInfos"
+"ID";"Title";"ShortTitle";"Identifier";"Summary";"Modified";"ReasonDelivery";"ExplanatoryText";"Language";"Catalog";"Frequency";"Period";"ShortDescription";"Description";"DefaultPresentation";"DefaultSelection";"GraphTypes";"OutputStatus";"Source";"MetaDataModified";"SearchPriority"
+"0";"Bevolking; onderwijsniveau en migratieachtergrond 2003-2021";"Bevolking;onderwijs,migratie achtergrond";"82275NED";"Hoogst behaald onderwijsniveau bevolking
+Laag, middelbaar, hoog onderwijs naar soort en migratieachtergrond";"2021-11-16T02:00:00";"Stopgezet";"";"nl";"CBS";"Stopgezet";"2003-2021";"
+In deze tabel vindt u gegevens personen van 15 jaar en ouder in Nederland, met uitzondering van personen in inrichtingen, instellingen en tehuizen (institutionele bevolking). De cijfers laten het hoogst behaald onderwijsniveau van personen van 15 en ouder zien, uitgesplitst naar geslacht, leeftijd en migratieachtergrond. 
+
+In verband met een herontwerp van de Enquête Beroepsbevolking (EBB) verschijnen er in november geen nieuwe cijfers over het derde kwartaal van 2021.  
+
+Gegevens beschikbaar vanaf: 2003
+
+Status van de cijfers:
+De cijfers in deze tabel zijn definitief. 
+
+Wijzigingen per 16 maart 2022:
+Deze tabel is stopgezet
+
+Wanneer komen er nieuwe cijfers?
+Niet meer van toepassing. Deze tabel wordt opgevolgd door Bevolking; hoogstbehaald onderwijsniveau. Zie paragraaf 3.
+";"INHOUDSOPGAVE
+
+1. Toelichting
+2. Definities en verklaring van symbolen
+3. Koppelingen naar relevante tabellen en artikelen
+4. Bronnen en methoden
+5. Meer informatie
+
+1. TOELICHTING
+
+In deze tabel vindt u gegevens personen van 15 jaar en ouder in Nederland, met uitzondering van personen in inrichtingen, instellingen en tehuizen (institutionele bevolking). De cijfers laten het hoogst behaald onderwijsniveau van personen van 15 en ouder zien, uitgesplitst naar geslacht, leeftijd en migratieachtergrond. 
+
+In verband met een herontwerp van de Enquête Beroepsbevolking (EBB) verschijnen er in november geen nieuwe cijfers over het derde kwartaal van 2021.  
+
+Gegevens beschikbaar vanaf: 2003
+
+Status van de cijfers:
+De cijfers in deze tabel zijn definitief. 
+
+Wijzigingen per 16 maart 2022:
+Deze tabel is stopgezet
+
+Wanneer komen er nieuwe cijfers?
+Niet meer van toepassing. Deze tabel wordt opgevolgd door Bevolking; hoogstbehaald onderwijsniveau. Zie paragraaf 3.
+
+2. DEFINITIES EN VERKLARING VAN SYMBOLEN
+
+Definities:
+
+Hoogst behaald onderwijsniveau
+Het hoogste onderwijsniveau waarvoor een diploma is behaald, óf het hoogste onderwijsniveau dat volledig is doorlopen (als voor het behalen van de opleiding een diploma niet van toepassing is). Als een opleiding (nog) niet is afgerond, gaat het om het onderwijsniveau dat wordt vereist om deze opleiding te kunnen volgen. 
+
+Verklaring van symbolen:
+
+niets (blanco)	: het cijfer kan op logische gronden niet voorkomen
+. 		: het cijfer is onbekend, onvoldoende betrouwbaar of geheim
+*		: voorlopige cijfers
+**		: nader voorlopige cijfers
+
+3. KOPPELINGEN NAAR RELEVANTE TABELLEN EN ARTIKELEN
+
+Relevante tabellen:
+
+Deze tabel wordt opgevolgd door <a href='https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85184NED'>Bevolking; hoogstbehaald onderwijsniveau</a>.
+
+<a href='https://opendata.cbs.nl/statline/#/CBS/nl/dataset/82816NED/table?ts=1517479999298'>Bevolking; hoogstbehaald onderwijsniveau en onderwijsrichting</a>
+<a href='https://opendata.cbs.nl/statline/#/CBS/nl/dataset/82123NED/table?ts=1517480482435'>Onderwijsniveau paren; partners van 25 jaar of ouder</a>
+
+Voor meer informatie over de revisie zie de <a href='https://www.cbs.nl/nl-NL/menu/themas/arbeid-sociale-zekerheid/publicaties/artikelen/archief/2014/2014-071-pb.htm'>persmededeling van 20 november 2014.</a>
+
+Relevante artikelen:
+
+Meer informatie is te vinden op de <a href='https://www.cbs.nl/nl-NL/menu/themas/onderwijs/nieuws/default.htm'>themapagina Onderwijs.</a>
+
+4. BRONNEN EN METHODEN
+
+De onderzoeksmethode van deze tabel is te vinden in de onderzoeksbeschrijving van de: <a href='https://www.cbs.nl/nl-NL/menu/themas/arbeid-sociale-zekerheid/methoden/dataverzameling/korte-onderzoeksbeschrijvingen/onderzoeksbeschrijving-ebb-art.htm'>Enquête beroepsbevolking (EBB)</a>
+
+Revisie onderwijsniveau en -richting
+De wijziging in het afleiden van het onderwijsniveau betreft met name een verbeterde ordening en nummering van de Code Type Opleiding (CTO). Deze ordening wordt gebruikt om het hoogst behaalde niveau af te leiden als er meerdere opleidingen zijn (of worden) gevolgd maar die niet allemaal zijn afgerond. 
+
+De wijziging in het afleiden van de onderwijsrichting betreft de in gebruik name van een nieuwe classificatiefile voor het automatisch typeren in de codeertool. De huidige classificatiefile is aangevuld met ruim 15 duizend cursusbenamingen zodat het niet-formele onderwijs beter getypeerd kan worden met codes van de richtingindeling van de International Standard Classification of Education (ISCED-F 2013). Deze wijzigingen zijn teruggelegd tot en met het vierde kwartaal van 2012.
+
+Er wordt nu gebruik gemaakt van de Standaard Onderwijsindeling (SOI) 2016 in plaats van die van 2006. In de SOI 2016 is de aansluiting tussen de internationale definities van de ISCED en de SOI verbeterd ten opzichte van de vorige SOI van 2006. De indeling naar laag, middelbaar en hoog onderwijsniveau is nu volgens de nationale definities van de SOI 2016 en die volgens de internationale definities van de ISCED 2011 gelijk aan elkaar. Bovendien staat het hebben van een startkwalificatie vanaf nu gelijk aan een onderwijsniveau van middelbaar of hoger. Deze wijziging heeft betrekking op alle verslagperioden.
+
+<a href='https://www.cbs.nl/nl-nl/corporate/2021/27/cbs-draagt-bij-aan-harmonisatie-europees-onderzoek-naar-beroepsbevolking#:~:text=Deze%20verordening%20moet%20zorgen%20voor,ontwikkeling%20van%20deze%20nieuwe%20verordening.'>CBS draagt bij aan harmonisatie Europees onderzoek naar beroepsbevolking</a>
+
+5. MEER INFORMATIE
+
+<a href='https://www.cbs.nl/nl-nl/over-ons/contact/infoservice'>Infoservice</a>
+
+Copyright (c) Centraal Bureau voor de Statistiek, Den Haag/Heerlen 
+Verveelvoudiging is toegestaan, mits het CBS als bron wordt vermeld.
+
+";"ts=1627566075662&graphtype=Table&r=Migratieachtergrond,HoogstBehaaldOnderwijsniveau&k=Topics,Leeftijd&t=Geslacht,Perioden";"$filter=((Geslacht eq 'T001038')) and ((Leeftijd eq '20150') or (Leeftijd eq '21600') or (Leeftijd eq '52052') or (Leeftijd eq '53050') or (Leeftijd eq '53500') or (Leeftijd eq '53700') or (Leeftijd eq '53800') or (Leeftijd eq '53900') or (Leeftijd eq '53925')) and ((Migratieachtergrond eq '1012600') or (Migratieachtergrond eq '2012655') or (Migratieachtergrond eq '2012657')) and ((HoogstBehaaldOnderwijsniveau eq '2018710') or (HoogstBehaaldOnderwijsniveau eq '2018716') or (HoogstBehaaldOnderwijsniveau eq '2018730') or (HoogstBehaaldOnderwijsniveau eq '2018760') or (HoogstBehaaldOnderwijsniveau eq '2018770') or (HoogstBehaaldOnderwijsniveau eq '2018780') or (HoogstBehaaldOnderwijsniveau eq '2018800') or (HoogstBehaaldOnderwijsniveau eq '2018810') or (HoogstBehaaldOnderwijsniveau eq '2018820') or (HoogstBehaaldOnderwijsniveau eq 'T001143')) and ((Perioden eq '2021KW02'))&$select=Geslacht, Leeftijd, Migratieachtergrond, HoogstBehaaldOnderwijsniveau, Perioden, Bevolking_1";"Table,Bar,Line";"Gediscontinueerd";"CBS.";"2022-03-18T02:00:00";"1"
+"DataProperties"
+ID;Position;ParentID;Type;Key;Title;Description;ReleasePolicy;Datatype;Unit;Decimals;Default
+"0";"0";;"Dimension";"Geslacht";"Geslacht";"";;;;;
+"1";"1";;"Dimension";"Leeftijd";"Leeftijd";"";;;;;
+"2";"2";;"Dimension";"Migratieachtergrond";"Migratieachtergrond ";"";;;;;
+"3";"3";;"Dimension";"HoogstBehaaldOnderwijsniveau";"Hoogst behaald onderwijsniveau";"";;;;;
+"4";"4";;"TimeDimension";"Perioden";"Perioden";"";"true";;;;
+"5";"5";;"Topic";"Bevolking_1";"Bevolking";"Personen van 15 tot 75 jaar die in Nederland wonen (excl. de institutionele bevolking).";;"Integer";"x 1000";"0";"Missing"
+"Geslacht"
+Key;Title;Description
+"T001038";"Totaal mannen en vrouwen";""
+"3000   ";"Mannen";""
+"4000   ";"Vrouwen";""
+"Leeftijd"
+Key;Title;Description
+"20150";"15 jaar of ouder";""
+"21600";"75 jaar of ouder";""
+"52052";"15 tot 75 jaar";""
+"53050";"15 tot 25 jaar";""
+"53500";"25 tot 35 jaar";""
+"53700";"35 tot 45 jaar";""
+"53800";"45 tot 55 jaar";""
+"53900";"55 tot 65 jaar";""
+"53925";"65 tot 75 jaar";""
+"Migratieachtergrond"
+Key;Title;Description
+"1012600";"Nederlandse achtergrond";"Persoon met een Nederlandse achtergrond
+
+Persoon van wie de beide ouders in Nederland zijn geboren."
+"2012605";"Met migratieachtergrond";"Persoon met een migratieachtergrond
+
+Persoon van wie ten minste één ouder in het buitenland is geboren."
+"2012655";"Westerse migratieachtergrond";"Persoon met een westerse migratieachtergrond
+
+Persoon met als migratieachtergrond een van de landen in Europa (exclusief Turkije), Noord-Amerika en Oceanië, en Indonesië en Japan. 
+Op grond van hun sociaal- economische en sociaal-culturele positie worden personen met een migratieachtergrond uit Indonesië en Japan tot de westerse migratieachtergrond gerekend. Het gaat vooral om mensen die in het voormalig Nederlands-Indië zijn geboren en werknemers van Japanse bedrijven met hun gezin."
+"2012657";"Niet-westerse migratieachtergrond";"Persoon met een niet-westerse migratieachtergrond
+
+Persoon met als migratieachtergrond een van de landen in Afrika, Latijns-Amerika en Azië (exclusief Indonesië en Japan) of Turkije. Op grond van hun sociaal-economische en sociaal-culturele positie worden personen met een migratieachtergrond uit Indonesië en Japan tot de westerse migratieachtergrond gerekend. Het gaat vooral om mensen die in het voormalig Nederlands-Indië zijn geboren en werknemers van Japanse bedrijven met hun gezin."
+"2012659";"Onbekende migratieachtergrond";"Onbekend, Internationaal gebied."
+"T001040";"Totaal ";""
+"H008673";"Marokko";"Marokko, Ifni, Spaanse Sahara, Westelijke Sahara."
+"H008766";"Turkije";""
+"H008751";"Suriname";""
+"H007119";"(voormalige) Nederlandse Antillen, Aruba";""
+"A008187";"Overige niet-westerse migratieachterg...";"Persoon met een niet eerder genoemde niet-westerse migratieachtergrond
+
+Persoon met een niet-westerse migratieachtergrond:
+Persoon met als migratieachtergrond een van de landen in Afrika, Latijns-Amerika en Azië (exclusief Indonesië en Japan) of Turkije. Op grond van hun sociaal-economische en sociaal-culturele positie worden personen met een migratieachtergrond uit Indonesië en Japan tot de westerse migratieachtergrond gerekend. Het gaat vooral om mensen die in het voormalig Nederlands-Indië zijn geboren en werknemers van Japanse bedrijven met hun gezin."
+"HoogstBehaaldOnderwijsniveau"
+Key;Title;Description
+"2018700";"1 Laag onderwijsniveau";"Het hoogstbehaald onderwijsniveau is laag onderwijs. 
+Dit omvat onderwijs op het niveau van basisonderwijs, het vmbo, de eerste 3 leerjaren van havo/vwo en de entreeopleiding, de voormalige assistentenopleiding (mbo1)."
+"2018710";"11 Basisonderwijs";"Het hoogstbehaald onderwijsniveau is basisonderwijs. 
+Dit omvat groep 1 tot en met 8 van het basisonderwijs en het speciaal basisonderwijs"
+"2018716";"121 Vmbo-b/k, mbo1";"Het hoogstbehaald onderwijsniveau is vmbo-b/k, mbo1. Dit omvat de basis- of kaderberoepsgerichte leerwegen van het vmbo en de entreeopleiding, de voormalige assistentenopleiding (mbo1)."
+"2018720";"12 Vmbo, havo-, vwo-onderbouw, mbo1";"Het hoogstbehaald onderwijsniveau is vmbo, havo-, vwo-onderbouw, mbo1. Dit omvat de eerste 3 leerjaren van havo/vwo, alle leerwegen van het vmbo en de entreeopleiding, de voormalige assistentenopleiding (mbo1)."
+"2018730";"122 Vmbo-g/t, havo-, vwo-onderbouw";"Het hoogstbehaald onderwijsniveau is vmbo-g/t, onderbouw van havo/vwo. Dit omvat de eerste 3 leerjaren van havo/vwo, en de gemengde en theoretische leerwegen van het vmbo."
+"2018740";"2 Middelbaar onderwijsniveau";"Het hoogstbehaald onderwijsniveau is middelbaar onderwijs. 
+Dit omvat de bovenbouw van havo/vwo, de basisberoepsopleiding (mbo2), de vakopleiding (mbo3) en de middenkader- en specialistenopleidingen (mbo4)."
+"2018750";"21 Havo, vwo, mbo2-4";"Het hoogstbehaald onderwijsniveau is middelbaar onderwijs. 
+Dit omvat de bovenbouw van havo/vwo, de basisberoepsopleiding (mbo2), de vakopleiding (mbo3) en de middenkader- en specialistenopleidingen (mbo4)."
+"2018760";"211 Mbo2 en mbo3";"Het hoogstbehaald onderwijsniveau is mbo2 en 3. 
+Dit omvat de basisberoepsopleiding (mbo2) en de vakopleiding (mbo3)."
+"2018770";"212 Mbo4";"Het hoogstbehaald onderwijsniveau is mbo4. 
+Dit omvat de middenkader- en specialistenopleiding (mbo4)."
+"2018780";"213 Havo, vwo";"Het hoogstbehaald onderwijsniveau is havo, vwo. 
+Dit omvat de bovenbouw van havo (leerjaar 4 en 5) en vwo (leerjaar 4 tot en met 6)."
+"2018790";"3 Hoog onderwijsniveau";"Het hoogstbehaald onderwijsniveau is hoog onderwijs. 
+Dit omvat onderwijs op het niveau van hbo of wo."
+"2018800";"31 Hbo-, wo-bachelor";"Het hoogstbehaald onderwijsniveau is hbo-, wo-bachelor. 
+Dit omvat de associate degree, de hbo- en wo-bachelors en 4-jarige hbo-opleidingen."
+"2018810";"32 Hbo-, wo-master, doctor";"Het hoogstbehaald onderwijsniveau is hbo-, wo-master, doctor. 
+Dit omvat de hbo- en wo-masters en wo-doctorsopleidingen."
+"2018820";"Weet niet of onbekend";"Het hoogstbehaald onderwijsniveau is onbekend."
+"2820708";"311 Hbo-, wo-bachelor";"Het hoogstbehaald onderwijsniveau is hbo-, wo-bachelor. Dit omvat de associate degree, de hbo- en wo-bachelors en 4-jarige hbo-opleidingen."
+"2820709";"321 Hbo-, wo-master, doctor";"Het hoogstbehaald onderwijsniveau is hbo-, wo-master, doctor. Dit omvat hbo- en wo-masters en wo-doctorsopleidingen."
+"2820710";"111 Basisonderwijs";"Het hoogstbehaald onderwijsniveau is basisonderwijs. Dit omvat groep 1 tot en met 8 van het basisonderwijs en het speciaal basisonderwijs"
+"T001143";"Totaal";""
+"Perioden"
+Key;Title;Description;Status
+"2003KW01";"2003 1e kwartaal";"";"Definitief"
+"2003KW02";"2003 2e kwartaal";"";"Definitief"
+"2003KW03";"2003 3e kwartaal";"";"Definitief"
+"2003KW04";"2003 4e kwartaal";"";"Definitief"
+"2003JJ00";"2003";"";"Definitief"
+"2004KW01";"2004 1e kwartaal";"";"Definitief"
+"2004KW02";"2004 2e kwartaal";"";"Definitief"
+"2004KW03";"2004 3e kwartaal";"";"Definitief"
+"2004KW04";"2004 4e kwartaal";"";"Definitief"
+"2004JJ00";"2004";"";"Definitief"
+"2005KW01";"2005 1e kwartaal";"";"Definitief"
+"2005KW02";"2005 2e kwartaal";"";"Definitief"
+"2005KW03";"2005 3e kwartaal";"";"Definitief"
+"2005KW04";"2005 4e kwartaal";"";"Definitief"
+"2005JJ00";"2005";"";"Definitief"
+"2006KW01";"2006 1e kwartaal";"";"Definitief"
+"2006KW02";"2006 2e kwartaal";"";"Definitief"
+"2006KW03";"2006 3e kwartaal";"";"Definitief"
+"2006KW04";"2006 4e kwartaal";"";"Definitief"
+"2006JJ00";"2006";"";"Definitief"
+"2007KW01";"2007 1e kwartaal";"";"Definitief"
+"2007KW02";"2007 2e kwartaal";"";"Definitief"
+"2007KW03";"2007 3e kwartaal";"";"Definitief"
+"2007KW04";"2007 4e kwartaal";"";"Definitief"
+"2007JJ00";"2007";"";"Definitief"
+"2008KW01";"2008 1e kwartaal";"";"Definitief"
+"2008KW02";"2008 2e kwartaal";"";"Definitief"
+"2008KW03";"2008 3e kwartaal";"";"Definitief"
+"2008KW04";"2008 4e kwartaal";"";"Definitief"
+"2008JJ00";"2008";"";"Definitief"
+"2009KW01";"2009 1e kwartaal";"";"Definitief"
+"2009KW02";"2009 2e kwartaal";"";"Definitief"
+"2009KW03";"2009 3e kwartaal";"";"Definitief"
+"2009KW04";"2009 4e kwartaal";"";"Definitief"
+"2009JJ00";"2009";"";"Definitief"
+"2010KW01";"2010 1e kwartaal";"";"Definitief"
+"2010KW02";"2010 2e kwartaal";"";"Definitief"
+"2010KW03";"2010 3e kwartaal";"";"Definitief"
+"2010KW04";"2010 4e kwartaal";"";"Definitief"
+"2010JJ00";"2010";"";"Definitief"
+"2011KW01";"2011 1e kwartaal";"";"Definitief"
+"2011KW02";"2011 2e kwartaal";"";"Definitief"
+"2011KW03";"2011 3e kwartaal";"";"Definitief"
+"2011KW04";"2011 4e kwartaal";"";"Definitief"
+"2011JJ00";"2011";"";"Definitief"
+"2012KW01";"2012 1e kwartaal";"";"Definitief"
+"2012KW02";"2012 2e kwartaal";"";"Definitief"
+"2012KW03";"2012 3e kwartaal";"";"Definitief"
+"2012KW04";"2012 4e kwartaal";"";"Definitief"
+"2012JJ00";"2012";"";"Definitief"
+"2013KW01";"2013 1e kwartaal";"";"Definitief"
+"2013KW02";"2013 2e kwartaal";"";"Definitief"
+"2013KW03";"2013 3e kwartaal";"";"Definitief"
+"2013KW04";"2013 4e kwartaal";"";"Definitief"
+"2013JJ00";"2013";"";"Definitief"
+"2014KW01";"2014 1e kwartaal";"";"Definitief"
+"2014KW02";"2014 2e kwartaal";"";"Definitief"
+"2014KW03";"2014 3e kwartaal";"";"Definitief"
+"2014KW04";"2014 4e kwartaal";"";"Definitief"
+"2014JJ00";"2014";"";"Definitief"
+"2015KW01";"2015 1e kwartaal";;"Definitief"
+"2015KW02";"2015 2e kwartaal";;"Definitief"
+"2015KW03";"2015 3e kwartaal";;"Definitief"
+"2015KW04";"2015 4e kwartaal";;"Definitief"
+"2015JJ00";"2015";;"Definitief"
+"2016KW01";"2016 1e kwartaal";;"Definitief"
+"2016KW02";"2016 2e kwartaal";;"Definitief"
+"2016KW03";"2016 3e kwartaal";;"Definitief"
+"2016KW04";"2016 4e kwartaal";;"Definitief"
+"2016JJ00";"2016";;"Definitief"
+"2017KW01";"2017 1e kwartaal";;"Definitief"
+"2017KW02";"2017 2e kwartaal";;"Definitief"
+"2017KW03";"2017 3e kwartaal";;"Definitief"
+"2017KW04";"2017 4e kwartaal";;"Definitief"
+"2017JJ00";"2017";;"Definitief"
+"2018KW01";"2018 1e kwartaal";;"Definitief"
+"2018KW02";"2018 2e kwartaal";;"Definitief"
+"2018KW03";"2018 3e kwartaal";;"Definitief"
+"2018KW04";"2018 4e kwartaal";;"Definitief"
+"2018JJ00";"2018";;"Definitief"
+"2019KW01";"2019 1e kwartaal";;"Definitief"
+"2019KW02";"2019 2e kwartaal";;"Definitief"
+"2019KW03";"2019 3e kwartaal";;"Definitief"
+"2019KW04";"2019 4e kwartaal";;"Definitief"
+"2019JJ00";"2019";;"Definitief"
+"2020KW01";"2020 1e kwartaal";;"Definitief"
+"2020KW02";"2020 2e kwartaal";;"Definitief"
+"2020KW03";"2020 3e kwartaal";;"Definitief"
+"2020KW04";"2020 4e kwartaal";;"Definitief"
+"2020JJ00";"2020";;"Definitief"
+"2021KW01";"2021 1e kwartaal";"";"Definitief"
+"2021KW02";"2021 2e kwartaal";"";"Definitief"
+"2021KW03";"2021 3e kwartaal";"";"Definitief"

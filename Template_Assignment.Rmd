@@ -1,6 +1,6 @@
 ---
-title: "Test123"
-author: "Studentnames and studentnumbers here"
+title: "Correlation between migration background and education level"
+author: "Tamara Bakker 2695715, Rik de Bruijn 2894496, Joep Hagendoorn 2893599, Lize den Hertog 2889649, Isabelle Stankovski"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
@@ -8,24 +8,27 @@ output: pdf_document
 # Set-up your environment
 
 ```{r package_install, include=FALSE}
-install.packages("tidyverse")
-install.packages("yaml")
-install.packages("rmarkdown")
+#install.packages("tidyverse")
+#install.packages("yaml")
+#install.packages("rmarkdown")
+#install.packages("readxl")
+
 ```
 
 ```{r packages}
 require(tidyverse)
 require(rmarkdown)
 require(yaml)
+library(readxl)
 ```
 
 # Title Page
 
-Include your names
+Tamara Bakker, Rik de Bruijn, Joep Hagendoorn, Lize den Hertog and Isabelle Stankovski
 
-Include the tutorial group number
+Tutorial group 2-1
 
-Include your tutorial lecturer's name
+Fatima Amankour
 
 # Part 1 - Identify a Social Problem
 
@@ -33,11 +36,7 @@ Use APA referencing throughout your document. [Here's a link to some explanation
 
 ## 1.1 Describe the Social Problem
 
-Include the following:
-
--   Why is this relevant?
-
--   ...
+Explain why this is is a social problem and what the problem is.
 
 # Part 2 - Data Sourcing
 
@@ -46,15 +45,31 @@ Include the following:
 Preferably from a URL, but if not, make sure to download the data and store it in a shared location that you can load the data in from. Do not store the data in a folder you include in the Github repository!
 
 ```{r loading_data}
-dataset <- midwest
+edu_mig_dataset <-read.csv("data/Jaar_bevolking_migratie_achtergrond.csv", sep=";")
+reg_mig_dataset <- read_xlsx("data/Ranglijst van de migratieachtergrond van inwoners per provincie in Nederland.xlsx")
+reg_edu_dataset <- read_xlsx("data/Regionale_kerncijfers_Nederland_04062026_120418.xlsx")
 ```
 
 midwest is an example dataset included in the tidyverse package
 
 ## 2.2 Provide a short summary of the dataset(s)
 
+### Summary dataset on education level and migration background
+
 ```{r}
-head(dataset)
+summary(edu_mig_dataset)
+```
+
+### Summary dataset on migration background percentage per region
+
+```{r}
+summary(reg_mig_dataset)
+```
+
+### Summary dataset on education level per region
+
+```{r}
+summary(reg_edu_dataset)
 ```
 
 In this case we see 28 variables, but we miss some information on what units they are in. We also don't know anything about the year/moment in which this data has been captured.
@@ -69,9 +84,9 @@ These are things that are usually included in the metadata of the dataset. For y
 
 Think of things like:
 
--   Do the variables contain health information or SES information?
+- Do the variables contain health information or SES information?
 
--   Have they been measured by interviewing individuals or is the data coming from administrative sources?
+- Have they been measured by interviewing individuals or is the data coming from administrative sources?
 
 *For the sake of this example, I will continue with the assignment...*
 
@@ -103,11 +118,15 @@ Variable 2
 
 ## 3.3 Visualize temporal variation
 
+Make own variable that shows our relation and plot it over time. Line graph with other version of migration-education dataset.
+
 ```{r}
 
 ```
 
 ## 3.4 Visualize spatial variation
+
+Compare/merge two maps, one with the level of education of a province and one with the proportion of migrants/people with a migration background living there. use datasets on migration background per region and education level per region to make maps. requires separate package, preferably from CBS.
 
 ```{r visualise_map}
 
@@ -117,7 +136,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 ## 3.5 Visualize sub-population variation
 
-What is the poverty rate by state?
+Comparison between the difference in education level between different ages, use dataset migration education and either a histogram or bar plot.
 
 ```{r visualise_subpopulations}
 dataset$inmetro <- dataset$inmetro %>% as.factor()
@@ -133,13 +152,15 @@ ggplot(dataset, aes(x = inmetro, y = percadultpoverty)) +
   theme(
     legend.position = "right"
   )
+
+
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
 ## 3.6 Event analysis
 
-Analyze the relationship between two variables.
+Find some kind of event in order to show changes caused by this event: Analyze the relationship between two variables. will be a line graph, not sure which dataset yet.
 
 ```{r analysis}
 
@@ -151,9 +172,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 ## 4.1 Discuss your findings
 
-# Part 5 - Reproducibility
-
-## 5.1 Github repository link
+Discuss the findings from all the analyses and draw somewhat of a conclusion whether our hypothesis was right. \# Part 5 - Reproducibility make sure that if someone were to reproduce our work, a change in packages would not matter as the information of which packages we used when is clear. \## 5.1 Github repository link
 
 Provide the link to your PUBLIC repository here: ...
 
