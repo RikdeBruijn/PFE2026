@@ -35,6 +35,7 @@ Fatima Amankour
 Use APA referencing throughout your document. [Here's a link to some explanation.](https://www.mendeley.com/guides/apa-citation-guide/)
 
 ## 1.1 Describe the Social Problem
+
 A study by research agency SCALIQ involving 6409 secondary school students, suggests that students with Arabic first and/or last names are more likely to be placed at a lower educational level than equally intelligent student with European sounding names. About half of the students with Arabic names were placed half a school level lower. The researchers say that this may be a sign of inequality in education. However, the study only looks at intelligence and names. It did not look at other factors such as family income, home support or cultural background. The experts say that being placed in a lower school level that is too low can hurt students' education, confidence/motivation and career opportunities.
 
 Explain why this is is a social problem and what the problem is.
@@ -98,9 +99,10 @@ Think of things like:
 Say we want to include only larger distances (above 2) in our dataset, we can filter for this.
 
 ```{r data_cleaning}
-edu_mig_dataset$Geslacht <- replace(edu_mig_dataset$Geslacht, 
-                                    edu_mig_dataset$Geslacht == "T001038", 
-                                    "totaal mannen en vrouwen")
+edu_mig_dataset <-read.csv("data/Jaar_bevolking_migratie_achtergrond.csv", sep=";")
+edu_mig_dataset$Geslacht <-replace(edu_mig_dataset$Geslacht,edu_mig_dataset$Geslacht == "T001038", "totaal mannen en vrouwen")
+
+
 edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd, str_detect(edu_mig_dataset$Leeftijd, "20150",), "15 jaar of ouder")
 edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd=="21600", "75 jaar of ouder")
 edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd=="52052","15 tot 75 jaar")
@@ -123,7 +125,44 @@ edu_mig_dataset$Migratieachtergrond<- replace(edu_mig_dataset$Migratieachtergron
 edu_mig_dataset$Migratieachtergrond<- replace(edu_mig_dataset$Migratieachtergrond,edu_mig_dataset$Migratieachtergrond=="H007119","(voormalige) Nederlandse Antillen, Aruba")
 edu_mig_dataset$Migratieachtergrond<- replace(edu_mig_dataset$Migratieachtergrond,edu_mig_dataset$Migratieachtergrond== "A008187","Overige niet-westerse migratieachgergrond ")
 
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2003JJ00","2003")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2004JJ00","2004")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2005JJ00","2005")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2006JJ00","2006")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2007JJ00","2007")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2008JJ00","2008")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2009JJ00","2009")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2010JJ00","2010")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2011JJ00","2011")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2012JJ00","2012")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden, edu_mig_dataset$Perioden=="2013JJ00","2013")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2014JJ00","2014")
+edu_mig_dataset$Perioden<-replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2015JJ00","2015")
+edu_mig_dataset$Perioden<-replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2016JJ00","2016")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2017JJ00","2017")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2018JJ00","2018")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2019JJ00","2019")
+edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2020JJ00","2020")
 
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018710","Basisonderwijs")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<- replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,
+                                                       edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018720",
+                                                       "Vmbo-g/t, havo-, vwo-onderbouw")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,
+                                                      edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018760",
+                                                      "Mbo2 en mbo3")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,
+                                                      edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018770",
+                                                      "Mbo4")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,
+                                                      edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018780",
+                                                      "Havo, vwo")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,
+                                                      edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018800",
+                                                      "Hbo-, wo-bachelor")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,
+                                                      edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018810",
+                                                      "Hbo-,wo-master,doctor")
 
 
 ```
