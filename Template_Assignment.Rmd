@@ -99,7 +99,10 @@ Think of things like:
 Say we want to include only larger distances (above 2) in our dataset, we can filter for this.
 
 ```{r data_cleaning}
+edu_mig_dataset <-read.csv("data/Jaar_bevolking_migratie_achtergrond.csv", sep=";")
 edu_mig_dataset$Geslacht <-replace(edu_mig_dataset$Geslacht,edu_mig_dataset$Geslacht == "T001038", "totaal mannen en vrouwen")
+
+
 edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd, str_detect(edu_mig_dataset$Leeftijd, "20150",), "15 jaar of ouder")
 edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd=="21600", "75 jaar of ouder")
 edu_mig_dataset$Leeftijd <- replace(edu_mig_dataset$Leeftijd,edu_mig_dataset$Leeftijd=="52052","15 tot 75 jaar")
@@ -142,12 +145,24 @@ edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Peri
 edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2020JJ00","2020")
 
 edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018710","Basisonderwijs")
-edu_mig_dataset$HoogstBehaaldOnderwijsniveau<- replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018720","Vmbo-g/t, havo-, vwo-onderbouw")
-edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018760","Mbo2 en mbo3")
-edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$Migratieachtergrond,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018770","Mbo4")
-edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018780","Havo, vwo")
-edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018800","Hbo-, wo-bachelor")
-edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018810","Hbo-,wo-master,doctor")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<- replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,
+                                                       edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018720",
+                                                       "Vmbo-g/t, havo-, vwo-onderbouw")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,
+                                                      edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018760",
+                                                      "Mbo2 en mbo3")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,
+                                                      edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018770",
+                                                      "Mbo4")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,
+                                                      edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018780",
+                                                      "Havo, vwo")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,
+                                                      edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018800",
+                                                      "Hbo-, wo-bachelor")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,
+                                                      edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018810",
+                                                      "Hbo-,wo-master,doctor")
 
 
 ```
