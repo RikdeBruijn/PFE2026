@@ -97,7 +97,11 @@ Think of things like:
 Say we want to include only larger distances (above 2) in our dataset, we can filter for this.
 
 ```{r data_cleaning}
-mean(dataset$percollege)
+edu_mig_dataset$Geslacht <- replace(edu_mig_dataset$Geslacht, 
+                                    edu_mig_dataset$Geslacht == "T001038", 
+                                    "totaal mannen en vrouwen")
+
+
 ```
 
 Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
