@@ -45,7 +45,7 @@ Explain why this is is a social problem and what the problem is.
 Preferably from a URL, but if not, make sure to download the data and store it in a shared location that you can load the data in from. Do not store the data in a folder you include in the Github repository!
 
 ```{r loading_data}
-edu_mig_dataset <-read.csv("data/Bevolking_onderwijs_migratie_achtergrond_08062026_141459.csv", sep=";")
+edu_mig_dataset <-read.csv("data/Jaar_bevolking_migratie_achtergrond.csv", sep=";")
 reg_mig_dataset <- read_xlsx("data/Ranglijst van de migratieachtergrond van inwoners per provincie in Nederland.xlsx")
 reg_edu_dataset <- read_xlsx("data/Regionale_kerncijfers_Nederland_04062026_120418.xlsx")
 ```
