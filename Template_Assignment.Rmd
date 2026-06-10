@@ -140,6 +140,16 @@ edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Peri
 edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2018JJ00","2018")
 edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2019JJ00","2019")
 edu_mig_dataset$Perioden<- replace(edu_mig_dataset$Perioden,edu_mig_dataset$Perioden=="2020JJ00","2020")
+
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018710","Basisonderwijs")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<- replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018720","Vmbo-g/t, havo-, vwo-onderbouw")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018760","Mbo2 en mbo3")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$Migratieachtergrond,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018770","Mbo4")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018780","Havo, vwo")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018800","Hbo-, wo-bachelor")
+edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBehaaldOnderwijsniveau,edu_mig_dataset$HoogstBehaaldOnderwijsniveau=="2018810","Hbo-,wo-master,doctor")
+
+
 ```
 
 Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
