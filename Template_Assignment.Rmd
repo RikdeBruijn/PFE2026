@@ -128,6 +128,21 @@ edu_mig_dataset$Migratieachtergrond<- replace(edu_mig_dataset$Migratieachtergron
 
 ```
 
+
+```{r data_cleaning}
+reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Zeeland (PV)", "Zeeland")
+reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Fryslân (PV)", "Friesland")
+reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Drenthe (PV)", "Drenthe")
+reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Flevoland (PV)", "Flevoland")
+reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Limburg (PV)", "Limburg")
+reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Overijssel (PV)", "Overijssel")
+reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Gelderland (PV)", "Gelderland")
+reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Groningen (PV)", "Groningen")
+reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Noord-Brabant (PV)", "Noord-Brabant")
+reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Noord-Holland (PV)", "Noord-Holland")
+reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Zuid-Holland (PV)", "Zuid-Holland")
+reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Utrecht (PV)", "Utrecht")
+```
 Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
 
 ## 3.2 Generate necessary variables
