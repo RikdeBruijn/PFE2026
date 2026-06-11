@@ -182,6 +182,10 @@ reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`
 reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Utrecht (PV)", "Utrecht")
 ```
 
+```{r data_cleaning}
+dataset <- reg_edu_dataset %>%
+  filter(Perioden<2025)
+```
 Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
 
 ## 3.2 Generate necessary variables
@@ -189,7 +193,6 @@ Please use a separate 'R block' of code for each type of cleaning. So, e.g. one 
 Variable 1
 
 ```{r gen_var1}
-edu_mig_dataset%>% group_by(Leeftijd)%>% mutate(percentage=Bevolking_1/sum(Bevolking_1)*100)%>% ggplot(aes(x=Leeftijd,y=percentage,fill=HoogstBehaaldOnderwijsniveau))+geom_col()+labs(x="leeftijdgroep",y="percentage",fill="HoogstbehaaldOnderwijsniveau")
 
 
 ```
