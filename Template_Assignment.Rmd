@@ -197,8 +197,7 @@ edu_mig_dataset%>% group_by(Leeftijd)%>% mutate(percentage=Bevolking_1/sum(Bevol
 Variable 2
 
 ```{r gen_var2}
-library(ggplot2)
-library(dplyr)
+
 
 # Bevolking kolom naar numeriek
 edu_mig_dataset$Bevolking_1 <- as.numeric(trimws(edu_mig_dataset$Bevolking_1))
@@ -212,13 +211,13 @@ df_plot <- edu_mig_dataset %>%
   mutate(
     jaar   = as.integer(Perioden),
     niveau = factor(HoogstBehaaldOnderwijsniveau, levels = c(
-      "Basisonderwijs",
-      "Vmbo-g/t, havo-, vwo-onderbouw",
-      "Mbo2 en mbo3",
-      "Mbo4",
+      "Hbo-,wo-master,doctor",
+      "Hbo-,wo-bachelor",
       "Havo, vwo",
-      "Hbo-, wo-bachelor",
-      "Hbo-,wo-master,doctor"
+      "Mbo4",
+      "Mbo2 en mbo3",
+      "Vmbo-g/t, havo-, vwo-onderbouw",
+      "Basisonderwijs"
     ))
   ) %>%
   group_by(jaar, Migratieachtergrond, niveau) %>%
