@@ -272,7 +272,7 @@ ggplot(df_plot, aes(x = jaar, y = pct, fill = niveau)) +
 
 ## 3.3 Visualize temporal variation
 
-Make own variable that shows our relation and plot it over time. Line graph with other version of migration-education dataset.
+Make own variable that shows our relation and plot it over time. Line graph with other version of migration-education dataset. Or the area graph above.
 
 ```{r}
 
