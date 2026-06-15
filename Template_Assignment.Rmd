@@ -48,7 +48,6 @@ reg_mig_dataset <- read_xlsx("data/Ranglijst van de migratieachtergrond van inwo
 reg_edu_dataset <- read_xlsx("data/Regionale_kerncijfers_Nederland_04062026_120418.xlsx")
 ```
 
-
 ## 2.2 Provide a short summary of the dataset(s)
 
 ### Summary dataset on education level and migration background
@@ -68,7 +67,6 @@ summary(reg_mig_dataset)
 ```{r}
 summary(reg_edu_dataset)
 ```
-
 
 ``` r
 inline_code = TRUE
@@ -90,8 +88,8 @@ Think of things like:
 
 ## 3.1 Data cleaning
 
-
 ### Renaming unclear characters in edu_mig_dataset
+
 ```{r data_cleaning}
 edu_mig_dataset <-read.csv("data/Jaar_bevolking_migratie_achtergrond.csv", sep=";")
 edu_mig_dataset$Geslacht <-replace(edu_mig_dataset$Geslacht,edu_mig_dataset$Geslacht == "T001038", "totaal mannen en vrouwen")
@@ -162,6 +160,7 @@ edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBeha
 ```
 
 ### Renaming inconsistent characters in reg_edu_dataset
+
 ```{r data_cleaning}
 reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Zeeland (PV)", "Zeeland")
 reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Fryslân (PV)", "Friesland")
@@ -178,12 +177,14 @@ reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`
 ```
 
 ### Eliminating unneccesary years in reg_edu_dataset
+
 ```{r data_cleaning}
 reg_edu_dataset_cl <- reg_edu_dataset %>%
   filter(Perioden > 2023 & Perioden< 2025)
 ```
 
 ### Eliminating unnecesary observations and variables in edu_mig_dataset
+
 ```{r data_cleaning}
 edu_mig_dataset_cl <- edu_mig_dataset %>% filter(Migratieachtergrond == "Totaal" | Migratieachtergrond == "Nederlandse achtergrond" | Migratieachtergrond == "Niet-westerse migratieachtergrond")
 edu_mig_dataset_cl <- edu_mig_dataset_cl %>% select(-Geslacht)
@@ -192,6 +193,7 @@ edu_mig_dataset_cl <- edu_mig_dataset_cl %>% select(-Geslacht)
 ```{r data_cleaning}
 reg_mig_dataset_cl <- reg_mig_dataset %>% select("% Herkomst Nederland", "% Herkomst buiten Europa")
 ```
+
 ## 3.2 Generate necessary variables
 
 Variable 1
@@ -205,7 +207,8 @@ Variable 2
 
 ```{r gen_var2}
 ```
-#
+
+# 
 
 ## 3.3 Visualize temporal variation
 
