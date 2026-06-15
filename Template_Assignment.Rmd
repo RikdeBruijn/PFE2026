@@ -188,6 +188,10 @@ dataset <- reg_edu_dataset %>%
 dataset <- reg_edu_dataset %>%
   filter(Perioden > 2023)
 ```
+
+```{r data_cleaning}
+edu_mig_dataset_cl <- edu_mig_dataset %>% filter(Migratieachtergrond == "Totaal" | Migratieachtergrond == "Nederlandse achtergrond" | Migratieachtergrond == "Niet-westerse migratieachtergrond")
+```
 Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
 
 ## 3.2 Generate necessary variables
