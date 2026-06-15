@@ -15,7 +15,7 @@ output: pdf_document
 
 ```
 
-```{r packages}
+```{r packages, echo=FALSE}
 require(tidyverse)
 require(rmarkdown)
 require(yaml)
@@ -42,7 +42,7 @@ A study by research agency SCALIQ involving 6409 secondary school students, sugg
 
 ## 2.1 Load in the data
 
-```{r loading_data}
+```{r loading_data, echo=FALSE}
 edu_mig_dataset <-read.csv("data/Jaar_bevolking_migratie_achtergrond.csv", sep=";")
 reg_mig_dataset <- read_xlsx("data/Ranglijst van de migratieachtergrond van inwoners per provincie in Nederland.xlsx")
 reg_edu_dataset <- read_xlsx("data/Regionale_kerncijfers_Nederland_04062026_120418.xlsx")
@@ -52,19 +52,19 @@ reg_edu_dataset <- read_xlsx("data/Regionale_kerncijfers_Nederland_04062026_1204
 
 ### Summary dataset on education level and migration background
 
-```{r}
+```{r echo=FALSE}
 summary(edu_mig_dataset)
 ```
 
 ### Summary dataset on migration background percentage per region
 
-```{r}
+```{r echo=FALSE}
 summary(reg_mig_dataset)
 ```
 
 ### Summary dataset on education level per region
 
-```{r}
+```{r echo=FALSE}
 summary(reg_edu_dataset)
 ```
 
@@ -90,7 +90,7 @@ Think of things like:
 
 ### Renaming unclear characters in edu_mig_dataset
 
-```{r data_cleaning}
+```{r data_cleaning, echo=FALSE}
 edu_mig_dataset <-read.csv("data/Jaar_bevolking_migratie_achtergrond.csv", sep=";")
 edu_mig_dataset$Geslacht <-replace(edu_mig_dataset$Geslacht,edu_mig_dataset$Geslacht == "T001038", "totaal mannen en vrouwen")
 
@@ -161,7 +161,7 @@ edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBeha
 
 ### Renaming inconsistent characters in reg_edu_dataset
 
-```{r data_cleaning}
+```{r data_cleaning, echo=FALSE}
 reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Zeeland (PV)", "Zeeland")
 reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Fryslân (PV)", "Friesland")
 reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Drenthe (PV)", "Drenthe")
@@ -178,19 +178,19 @@ reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`
 
 ### Eliminating unneccesary years in reg_edu_dataset
 
-```{r data_cleaning}
+```{r data_cleaning, echo=FALSE}
 reg_edu_dataset_cl <- reg_edu_dataset %>%
   filter(Perioden > 2023 & Perioden< 2025)
 ```
 
 ### Eliminating unnecesary observations and variables in edu_mig_dataset
 
-```{r data_cleaning}
+```{r data_cleaning, echo=FALSE}
 edu_mig_dataset_cl <- edu_mig_dataset %>% filter(Migratieachtergrond == "Totaal" | Migratieachtergrond == "Nederlandse achtergrond" | Migratieachtergrond == "Niet-westerse migratieachtergrond")
 edu_mig_dataset_cl <- edu_mig_dataset_cl %>% select(-Geslacht)
 ```
 
-```{r data_cleaning}
+```{r data_cleaning, echo=FALSE}
 reg_mig_dataset_cl <- reg_mig_dataset %>% select("% Herkomst Nederland", "% Herkomst buiten Europa")
 ```
 
@@ -198,14 +198,14 @@ reg_mig_dataset_cl <- reg_mig_dataset %>% select("% Herkomst Nederland", "% Herk
 
 Variable 1
 
-```{r gen_var1}
+```{r gen_var1, echo=FALSE}
 
 
 ```
 
 Variable 2
 
-```{r gen_var2}
+```{r gen_var2, echo=FALSE}
 ```
 
 # 
@@ -214,7 +214,7 @@ Variable 2
 
 Make own variable that shows our relation and plot it over time. Line graph with other version of migration-education dataset.
 
-```{r}
+```{r echo=FALSE}
 
 # Bevolking kolom naar numeriek
 edu_mig_dataset$Bevolking_1 <- as.numeric(trimws(edu_mig_dataset$Bevolking_1))
@@ -288,7 +288,7 @@ ggplot(df_plot, aes(x = jaar, y = pct, fill = niveau)) +
 
 Compare/merge two maps, one with the level of education of a province and one with the proportion of migrants/people with a migration background living there. use datasets on migration background per region and education level per region to make maps. requires separate package, preferably from CBS.
 
-```{r visualise_map}
+```{r visualise_map, echo=FALSE}
 
 ```
 
@@ -298,20 +298,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 Comparison between the difference in education level between different ages, use dataset migration education and either a histogram or bar plot.
 
-```{r visualise_subpopulations}
-dataset$inmetro <- dataset$inmetro %>% as.factor()
-# Boxplot of poverty rate by state using the 'midwest' dataset
-ggplot(dataset, aes(x = inmetro, y = percadultpoverty)) +
-  geom_boxplot() +
-  labs(
-    title = "Distribution of Poverty Rates by Metropolitan status (Midwest counties)",
-    x = "Metropolitan Area",
-    y = "Poverty Rate of Adults (%)"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.position = "right"
-  )
+```{r visualise_subpopulations, echo=FALSE}
 
 
 ```
@@ -322,7 +309,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 Find some kind of event in order to show changes caused by this event: Analyze the relationship between two variables. will be a line graph, not sure which dataset yet.
 
-```{r analysis}
+```{r analysis, echo=FALSE}
 
 ```
 
