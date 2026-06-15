@@ -225,7 +225,9 @@ new_var_1 <- edu_mig_dataset_cl %>%
 Variable 2: Percentage of non-European migrants that have obtained a hbo or wo bachelor for different age groups in 2020
 
 ```{r gen_var2, echo=FALSE}
-new_variable_2 <- edu_mig_dataset_cl %>% filter(Perioden == 2020 & Migratieachtergrond == "Niet-westerse migratieachtergrond", Leeftijd %in% c("25 tot 35 jaar", "35 tot 45 jaar", "45 tot 55 jaar", "55 tot 65 jaar", "65 tot 75 jaar", "75 jaar of ouder")) %>% group_by(Leeftijd) %>% summarise(total = sum(Bevolking_1, na.rm = TRUE))
+new_var_2 <- edu_mig_dataset_cl %>% filter(Perioden == 2020 & Migratieachtergrond == "Niet-westerse migratieachtergrond", Leeftijd %in% c("25 tot 35 jaar", "35 tot 45 jaar", "45 tot 55 jaar", "55 tot 65 jaar", "65 tot 75 jaar", "75 jaar of ouder")) %>% group_by(Leeftijd, HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor") %>% summarise(high_education = sum(Bevolking_1, na.rm = TRUE), .groups = "drop") %>% group_by(Leeftijd) %>% mutate(perc = high_education / sum(high_education) * 100) %>% ungroup() 
+new_var_2 <- new_var_2 %>% filter(`HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor"` == TRUE)
+new_var_2 <- new_var_2 %>% select(-`HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor"`)
 ```
 
 
