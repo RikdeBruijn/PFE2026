@@ -237,30 +237,6 @@ Make own variable that shows our relation and plot it over time. Line graph with
 # Bevolking kolom naar numeriek
 edu_mig_dataset$Bevolking_1 <- as.numeric(trimws(edu_mig_dataset$Bevolking_1))
 
-# Data voorbereiden
-df_plot <- edu_mig_dataset %>%
-  filter(
-    Leeftijd            == "15 jaar of ouder",
-    Migratieachtergrond %in% c("Nederlandse achtergrond", "Niet-westerse migratieachtergrond")
-  ) %>%
-  mutate(
-    jaar   = as.integer(Perioden),
-    niveau = factor(HoogstBehaaldOnderwijsniveau, levels = c(
-      "Hbo-,wo-master,doctor",
-      "Hbo-, wo-bachelor",
-      "Havo, vwo",
-      "Mbo4",
-      "Mbo2 en mbo3",
-      "Vmbo-g/t, havo-, vwo-onderbouw",
-      "Basisonderwijs"
-    ))
-  ) %>%
-  group_by(jaar, Migratieachtergrond, niveau) %>%
-  summarise(bevolking = sum(Bevolking_1, na.rm = TRUE), .groups = "drop") %>%
-  group_by(jaar, Migratieachtergrond) %>%
-  mutate(pct = bevolking / sum(bevolking) * 100) %>%
-  ungroup()
-
 # Kleuren van laag naar hoog
 kleuren <- c(
   "Basisonderwijs"                 = "#d73027",
@@ -272,7 +248,7 @@ kleuren <- c(
   "Hbo-,wo-master,doctor"          = "#4575b4"
 )
 
-ggplot(df_plot, aes(x = jaar, y = pct, fill = niveau)) +
+ggplot(new_var_1, aes(x = jaar, y = pct, fill = niveau)) +
   geom_area(stat = "identity", position = "fill", na.rm = TRUE) +
   facet_wrap(~ Migratieachtergrond, ncol = 2) +
   scale_fill_manual(values = kleuren) +
