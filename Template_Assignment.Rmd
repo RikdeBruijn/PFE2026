@@ -89,7 +89,6 @@ Think of things like:
 ## 3.1 Data cleaning
 
 ### Renaming unclear characters in edu_mig_dataset
-
 ```{r data_cleaning, echo=FALSE}
 edu_mig_dataset <-read.csv("data/Jaar_bevolking_migratie_achtergrond.csv", sep=";")
 edu_mig_dataset$Geslacht <-replace(edu_mig_dataset$Geslacht,edu_mig_dataset$Geslacht == "T001038", "totaal mannen en vrouwen")
@@ -159,8 +158,13 @@ edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBeha
 
 ```
 
-### Renaming inconsistent characters in reg_edu_dataset
+### Eliminating unnecessary observations and variables in edu_mig_dataset
+```{r data_cleaning, echo=FALSE}
+edu_mig_dataset_cl <- edu_mig_dataset %>% filter(Migratieachtergrond == "Totaal" | Migratieachtergrond == "Nederlandse achtergrond" | Migratieachtergrond == "Niet-westerse migratieachtergrond")
+edu_mig_dataset_cl <- edu_mig_dataset_cl %>% select(-Geslacht)
+```
 
+### Renaming inconsistent characters in reg_edu_dataset
 ```{r data_cleaning, echo=FALSE}
 reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Zeeland (PV)", "Zeeland")
 reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Fryslân (PV)", "Friesland")
@@ -176,20 +180,13 @@ reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`
 reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Utrecht (PV)", "Utrecht")
 ```
 
-### Eliminating unneccesary years in reg_edu_dataset
-
+### Eliminating unnecessary years in reg_edu_dataset
 ```{r data_cleaning, echo=FALSE}
 reg_edu_dataset_cl <- reg_edu_dataset %>%
   filter(Perioden > 2023 & Perioden< 2025)
 ```
 
-### Eliminating unnecesary observations and variables in edu_mig_dataset
-
-```{r data_cleaning, echo=FALSE}
-edu_mig_dataset_cl <- edu_mig_dataset %>% filter(Migratieachtergrond == "Totaal" | Migratieachtergrond == "Nederlandse achtergrond" | Migratieachtergrond == "Niet-westerse migratieachtergrond")
-edu_mig_dataset_cl <- edu_mig_dataset_cl %>% select(-Geslacht)
-```
-
+### Eliminating unnecessary variables in reg_mig_dataset
 ```{r data_cleaning, echo=FALSE}
 reg_mig_dataset_cl <- reg_mig_dataset %>% select("% Herkomst Nederland", "% Herkomst buiten Europa")
 ```
@@ -208,7 +205,6 @@ Variable 2
 ```{r gen_var2, echo=FALSE}
 ```
 
-# 
 
 ## 3.3 Visualize temporal variation
 
