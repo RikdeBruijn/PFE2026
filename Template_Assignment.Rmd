@@ -183,6 +183,7 @@ reg_edu_dataset_cl <- reg_edu_dataset %>%
 
 ```{r data_cleaning}
 edu_mig_dataset_cl <- edu_mig_dataset %>% filter(Migratieachtergrond == "Totaal" | Migratieachtergrond == "Nederlandse achtergrond" | Migratieachtergrond == "Niet-westerse migratieachtergrond")
+edu_mig_dataset_cl <- edu_mig_dataset_cl %>% select(-Geslacht)
 ```
 Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
 
