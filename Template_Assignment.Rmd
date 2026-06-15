@@ -38,13 +38,9 @@ Use APA referencing throughout your document. [Here's a link to some explanation
 
 A study by research agency SCALIQ involving 6409 secondary school students, suggests that students with Arabic first and/or last names are more likely to be placed at a lower educational level than equally intelligent student with European sounding names. About half of the students with Arabic names were placed half a school level lower. The researchers say that this may be a sign of inequality in education. However, the study only looks at intelligence and names. It did not look at other factors such as family income, home support or cultural background. The experts say that being placed in a lower school level that is too low can hurt students' education, confidence/motivation and career opportunities.
 
-Explain why this is is a social problem and what the problem is.
-
 # Part 2 - Data Sourcing
 
 ## 2.1 Load in the data
-
-Preferably from a URL, but if not, make sure to download the data and store it in a shared location that you can load the data in from. Do not store the data in a folder you include in the Github repository!
 
 ```{r loading_data}
 edu_mig_dataset <-read.csv("data/Jaar_bevolking_migratie_achtergrond.csv", sep=";")
@@ -52,7 +48,6 @@ reg_mig_dataset <- read_xlsx("data/Ranglijst van de migratieachtergrond van inwo
 reg_edu_dataset <- read_xlsx("data/Regionale_kerncijfers_Nederland_04062026_120418.xlsx")
 ```
 
-midwest is an example dataset included in the tidyverse package
 
 ## 2.2 Provide a short summary of the dataset(s)
 
@@ -74,7 +69,6 @@ summary(reg_mig_dataset)
 summary(reg_edu_dataset)
 ```
 
-In this case we see 28 variables, but we miss some information on what units they are in. We also don't know anything about the year/moment in which this data has been captured.
 
 ``` r
 inline_code = TRUE
@@ -183,10 +177,8 @@ reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`
 ```
 
 ```{r data_cleaning}
-dataset <- reg_edu_dataset %>%
-  filter(Perioden < 2025)
-dataset <- reg_edu_dataset %>%
-  filter(Perioden > 2023)
+reg_edu_dataset_cl <- reg_edu_dataset %>%
+  filter(Perioden > 2023 & Perioden< 2025)
 ```
 
 ```{r data_cleaning}
