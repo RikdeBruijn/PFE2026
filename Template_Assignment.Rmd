@@ -352,27 +352,6 @@ ggplot(spatial_var_mig) +
   theme(plot.title = element_text(hjust = 0.5, face = "bold"))
 ```
 
-
-
-```{r visualise_map, echo=FALSE}
-
-
-
-# Get map of the Netherlands
-nl_map_data <- ne_countries(country = "Netherlands", returnclass = "sf")
-
-# Make dataset of provinces
-nl_provinces <- ne_states(country = "Netherlands", returnclass  = "sf")
-
-nl_provinces$name
-
-# Join province dataset and other datasets
-spatial_var_mig <- right_join(nl_provinces, reg_mig_dataset_cl, by = c("name"="Provincienaam"))
-                    
-# Plot map
-ggplot(spatial_var_mig) + geom_sf(aes(fill = spatial_var_mig[1:12,123]), low = "#e8F5E9", high = "#1b5e20") + labs(title = "Percentage of population with non-Western migration background") + theme_void() + theme(plot.title = element_text(hjust = 0.5, face = "bold"))
-```
-
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
 ## 3.5 Visualize sub-population variation
