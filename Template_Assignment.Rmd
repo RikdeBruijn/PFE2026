@@ -62,6 +62,7 @@ reg_edu_dataset <- read_xlsx("data/Regionale_kerncijfers_Nederland_04062026_1204
 
 ### Summary dataset on education level and migration background
 
+In the first dataset about education level and migration background you can see that a group consisting of both men and women was researched. All of the men and women are 15 years old and above. In the dataset you can see the different migration backgrounds with the highest level of education achieved.
 ```{r echo=FALSE}
 summary(edu_mig_dataset)
 ```
@@ -322,7 +323,31 @@ Here you provide a description of why the plot above is relevant to your specifi
 Find some kind of event in order to show changes caused by this event: Analyze the relationship between two variables. will be a line graph, not sure which dataset yet.
 
 ```{r analysis, echo=FALSE}
+# Filter alleen basisonderwijs + niet-westerse achtergrond
+event_data <- new_var_1 %>%
+  filter(
+    niveau == "Basisonderwijs",
+    Migratieachtergrond == "Niet-westerse migratieachtergrond"
+  )
 
+# Plot
+ggplot(event_data, aes(x = jaar, y = pct)) +
+geom_line(color = "steelblue", linewidth = 1) +
+geom_point(color = "steelblue", size = 2) +
+  geom_vline(xintercept = 2006, linetype = "dashed", color = "black") +
+  annotate("text", x = 2006.2, y = max(basis_data$pct),
+           label = "introduction Wet inburgering (2006)", hjust = 0, size = 3.5) +
+  labs(
+    title = " Share of people with non-western migrationbackground and with primary school as highest education level",
+    x     = "Year",
+    y     = "Percentage (%)"
+  ) +
+  scale_x_continuous(breaks = unique(event_data$jaar)) +
+  theme_minimal() +
+  theme(
+    plot.title  = element_text(face = "bold", size = 13),
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
