@@ -12,8 +12,13 @@ output: pdf_document
 #install.packages("yaml")
 #install.packages("rmarkdown")
 #install.packages("readxl")
-install.packages("cbsodataR")
-install.packages("sf")
+#install.packages("cbsodataR")
+#install.packages("sf")
+#install.packages("rnaturalearth")
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
+remotes::install_github("ropensci/rnaturalearthhires")
 ```
 
 ```{r packages, echo=FALSE}
@@ -23,6 +28,8 @@ require(yaml)
 library(readxl)
 library(cbsodataR)
 library(sf)
+library(rnaturalearth)
+library(remotes)
 ```
 
 # Title Page
@@ -55,6 +62,7 @@ reg_edu_dataset <- read_xlsx("data/Regionale_kerncijfers_Nederland_04062026_1204
 
 ### Summary dataset on education level and migration background
 
+In the first dataset about education level and migration background you can see that a group consisting of both men and women was researched. All of the men and women are 15 years old and above. In the dataset you can see the different migration backgrounds with the highest level of education achieved.
 ```{r echo=FALSE}
 summary(edu_mig_dataset)
 ```
@@ -289,7 +297,13 @@ ggplot(new_var_1, aes(x = jaar, y = pct, fill = niveau)) +
 Compare/merge two maps, one with the level of education of a province and one with the proportion of migrants/people with a migration background living there. use datasets on migration background per region and education level per region to make maps. requires separate package, preferably from CBS.
 
 ```{r visualise_map, echo=FALSE}
+# Get map of the Netherlands
+nl_map_data <- ne_countries(country = "Netherlands", returnclass = "sf")
 
+# Make dataset of provinces
+nl_provinces <- ne_states(country = "Netherlands", returnclass  = "sf")
+# Plot map
+ggplot()
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
