@@ -272,11 +272,11 @@ ggplot(new_var_1, aes(x = jaar, y = pct, fill = niveau)) +
     expand = c(0, 0)
   ) +
   labs(
-    title    = "Hoogst behaald onderwijsniveau naar migratieachtergrond",
-    subtitle = "Bevolking 15 jaar en ouder, 2003–2020  |  Bron: CBS (EBB, tabel 82275NED)",
+    title    = "Highest level of education based on migration background",
+    subtitle = "Popultion 15 year of older, 2003–2020  |  source: CBS (EBB, tabel 82275NED)",
     x        = NULL,
-    y        = "Aandeel (%)",
-    fill     = "Onderwijsniveau"
+    y        = "share (%)",
+    fill     = "education level"
   ) +
   theme_minimal(base_size = 13) +
   theme(
