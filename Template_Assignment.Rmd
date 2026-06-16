@@ -12,7 +12,7 @@ output: pdf_document
 #install.packages("yaml")
 #install.packages("rmarkdown")
 #install.packages("readxl")
-
+install.packages("cbsodataR")
 ```
 
 ```{r packages, echo=FALSE}
@@ -20,6 +20,7 @@ require(tidyverse)
 require(rmarkdown)
 require(yaml)
 library(readxl)
+library(cbsodataR)
 ```
 
 # Title Page
