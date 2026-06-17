@@ -1,5 +1,5 @@
 ---
-title: "Correlation between migration background and education level"
+title: "The relation between migration non-Western background and education level"
 author: "Tamara Bakker 2695715, Rik de Bruijn 2894496, Joep Hagendoorn 2893599, Lize den Hertog 2889649, Isabelle Stankovski 2883224"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -54,7 +54,10 @@ Use APA referencing throughout your document. [Here's a link to some explanation
 
 ## 1.1 Describe the Social Problem
 
-A study by research agency SCALIQ involving 6409 secondary school students, suggests that students with Arabic first and/or last names are more likely to be placed at a lower educational level than equally intelligent student with European sounding names. About half of the students with Arabic names were placed half a school level lower. The researchers say that this may be a sign of inequality in education. However, the study only looks at intelligence and names. It did not look at other factors such as family income, home support or cultural background. The experts say that being placed in a lower school level that is too low can hurt students' education, confidence/motivation and career opportunities.
+A study by research agency SCALIQ involving 6409 secondary school students, suggests that students with Arabic first and/or last names are more likely to be placed at a lower educational level than equally intelligent student with European sounding names. About half of the students with Arabic names were placed half a school level lower. The researchers say that this may be a sign of inequality in education. This is a problem because it can hurt students' education, career opportunities and motivation. However, the study only looks at intelligence and names. It did not look at other factors such as family income, home support or cultural background. The experts say that being placed in a lower school level that is too low can hurt students' education, confidence/motivation and career opportunities.
+
+
+In another study by KIS they researched whether students with a migration background in the Netherlands receive a lower educational recommendation than they deserve for their abilities. Based on quantitative analyses and interviews with teachers, students and parents, the researchers found just a little evidence of discrimination based on ethnicity. However factors such as Dutch language proficiency, home environment, classroom behavior and of course the perceptions of the teachers can influence the recommendations. This may negatively impact children with a different ethnic background.
 
 # Part 2 - Data Sourcing
 
@@ -253,9 +256,22 @@ new_var_1 <- edu_mig_dataset_cl %>%
 Variable 2: Percentage of non-European migrants that have obtained a hbo or wo bachelor for different age groups in 2020
 
 ```{r gen_var2, echo=FALSE}
-new_var_2 <- edu_mig_dataset_cl %>% filter(Perioden == 2020 & Migratieachtergrond == "Niet-westerse migratieachtergrond", Leeftijd %in% c("25 tot 35 jaar", "35 tot 45 jaar", "45 tot 55 jaar", "55 tot 65 jaar", "65 tot 75 jaar", "75 jaar of ouder")) %>% group_by(Leeftijd, HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor") %>% summarise(high_education = sum(Bevolking_1, na.rm = TRUE), .groups = "drop") %>% group_by(Leeftijd) %>% mutate(perc = high_education / sum(high_education) * 100) %>% ungroup() 
+# Code for percentage per age group of non-Western migrants that have obtained a hbo or wo bachelor
+new_var_2 <- edu_mig_dataset_cl %>% filter(Perioden == 2020 & Migratieachtergrond == "Niet-westerse migratieachtergrond", Leeftijd %in% c("25 tot 35 jaar", "35 tot 45 jaar", "45 tot 55 jaar", "55 tot 65 jaar", "65 tot 75 jaar", "75 jaar of ouder")) %>% group_by(Leeftijd, HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor") %>% summarise(high_education_mig = sum(Bevolking_1, na.rm = TRUE), .groups = "drop") %>% group_by(Leeftijd) %>% mutate(percentage = high_education_mig / sum(high_education_mig) * 100) %>% ungroup() 
 new_var_2 <- new_var_2 %>% filter(`HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor"` == TRUE)
 new_var_2 <- new_var_2 %>% select(-`HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor"`)
+
+# Code for percentage per age group of Dutch people that have obtained a hbo or wo bachelor
+in_between_df <- edu_mig_dataset_cl %>% filter(Perioden == 2020 & Migratieachtergrond == "Nederlandse achtergrond", Leeftijd %in% c("25 tot 35 jaar", "35 tot 45 jaar", "45 tot 55 jaar", "55 tot 65 jaar", "65 tot 75 jaar", "75 jaar of ouder")) %>% group_by(Leeftijd, HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor") %>% summarise(high_education_nl = sum(Bevolking_1, na.rm = TRUE), .groups = "drop") %>% group_by(Leeftijd) %>% mutate(percentage = high_education_nl / sum(high_education_nl) * 100) %>% ungroup() 
+in_between_df <- in_between_df %>% filter(`HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor"` == TRUE)
+
+# Get them together in one dataset
+new_var_2 <- new_var_2 %>% mutate(group = "Non-Western")
+in_between_df <- in_between_df %>% mutate(group = "Dutch")
+combined_var <- bind_rows(new_var_2, in_between_df)
+
+# Clean the combined product
+combined_var <- combined_var %>% select(Leeftijd, percentage, group)
 ```
 
 ## 3.3 Visualize temporal variation
@@ -370,7 +386,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 Comparison between the difference in education level between different ages, use dataset migration education and either a histogram or bar plot
 
 ```{r visualise_subpopulations, echo=FALSE}
-ggplot(new_var_2, aes(x = Leeftijd, y = perc)) + geom_col(na.rm = TRUE, fill = "pink", colour = "black") + labs( title = "Participation high education per age group", y = "Percentage", x = "Age group") + theme_minimal()
+ggplot(combined_var, aes(x = Leeftijd, y = percentage, fill = group)) + geom_col(position = "dodge", na.rm = TRUE, colour = "black") + scale_fill_manual(values = c("Dutch" = "lightpink", "Non-Western" = "#E75480")) + labs( title = "Proportion of people that have obtained a hbo or wo bachelor", y = "Percentage (of people)", x = "Age group") + theme_minimal()
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
