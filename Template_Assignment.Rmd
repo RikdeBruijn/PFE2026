@@ -1,5 +1,5 @@
 ---
-title: "Correlation between migration background and education level"
+title: "The relation between migration non-Western background and education level"
 author: "Tamara Bakker 2695715, Rik de Bruijn 2894496, Joep Hagendoorn 2893599, Lize den Hertog 2889649, Isabelle Stankovski 2883224"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -84,7 +84,7 @@ summary(reg_mig_dataset)
 summary(reg_edu_dataset)
 ```
 
-``` {r}
+```{r}
 inline_code = TRUE
 ```
 
@@ -245,9 +245,22 @@ new_var_1 <- edu_mig_dataset_cl %>%
 Variable 2: Percentage of non-European migrants that have obtained a hbo or wo bachelor for different age groups in 2020
 
 ```{r gen_var2, echo=FALSE}
-new_var_2 <- edu_mig_dataset_cl %>% filter(Perioden == 2020 & Migratieachtergrond == "Niet-westerse migratieachtergrond", Leeftijd %in% c("25 tot 35 jaar", "35 tot 45 jaar", "45 tot 55 jaar", "55 tot 65 jaar", "65 tot 75 jaar", "75 jaar of ouder")) %>% group_by(Leeftijd, HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor") %>% summarise(high_education = sum(Bevolking_1, na.rm = TRUE), .groups = "drop") %>% group_by(Leeftijd) %>% mutate(perc = high_education / sum(high_education) * 100) %>% ungroup() 
+# Code for percentage per age group of non-Western migrants that have obtained a hbo or wo bachelor
+new_var_2 <- edu_mig_dataset_cl %>% filter(Perioden == 2020 & Migratieachtergrond == "Niet-westerse migratieachtergrond", Leeftijd %in% c("25 tot 35 jaar", "35 tot 45 jaar", "45 tot 55 jaar", "55 tot 65 jaar", "65 tot 75 jaar", "75 jaar of ouder")) %>% group_by(Leeftijd, HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor") %>% summarise(high_education_mig = sum(Bevolking_1, na.rm = TRUE), .groups = "drop") %>% group_by(Leeftijd) %>% mutate(percentage = high_education_mig / sum(high_education_mig) * 100) %>% ungroup() 
 new_var_2 <- new_var_2 %>% filter(`HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor"` == TRUE)
 new_var_2 <- new_var_2 %>% select(-`HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor"`)
+
+# Code for percentage per age group of Dutch people that have obtained a hbo or wo bachelor
+in_between_df <- edu_mig_dataset_cl %>% filter(Perioden == 2020 & Migratieachtergrond == "Nederlandse achtergrond", Leeftijd %in% c("25 tot 35 jaar", "35 tot 45 jaar", "45 tot 55 jaar", "55 tot 65 jaar", "65 tot 75 jaar", "75 jaar of ouder")) %>% group_by(Leeftijd, HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor") %>% summarise(high_education_nl = sum(Bevolking_1, na.rm = TRUE), .groups = "drop") %>% group_by(Leeftijd) %>% mutate(percentage = high_education_nl / sum(high_education_nl) * 100) %>% ungroup() 
+in_between_df <- in_between_df %>% filter(`HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor"` == TRUE)
+
+# Get them together in one dataset
+new_var_2 <- new_var_2 %>% mutate(group = "Non-Western")
+in_between_df <- in_between_df %>% mutate(group = "Dutch")
+combined_var <- bind_rows(new_var_2, in_between_df)
+
+# Clean the combined product
+combined_var <- combined_var %>% select(Leeftijd, percentage, group)
 ```
 
 ## 3.3 Visualize temporal variation
@@ -368,7 +381,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 Comparison between the difference in education level between different ages, use dataset migration education and either a histogram or bar plot.
 
 ```{r visualise_subpopulations, echo=FALSE}
-ggplot(new_var_2, aes(x = Leeftijd, y = perc)) + geom_col(na.rm = TRUE, fill = "pink", colour = "black") + labs( title = "Participation high education per age group", y = "Percentage", x = "Age group") + theme_minimal()
+ggplot(combined_var, aes(x = Leeftijd, y = percentage, fill = group)) + geom_col(position = "dodge", na.rm = TRUE, colour = "black") + scale_fill_manual(values = c("Dutch" = "lightpink", "Non-Western" = "#E75480")) + labs( title = "Proportion of people that have a hbo or wo bachelor per age group", y = "Percentage (of people)", x = "Age group") + theme_minimal()
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
