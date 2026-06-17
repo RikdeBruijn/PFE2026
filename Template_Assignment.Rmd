@@ -65,13 +65,9 @@ reg_edu_dataset <- read_xlsx("data/Regionale_kerncijfers_Nederland_04062026_1204
 
 ### Summary dataset on education level and migration background
 
-<<<<<<< HEAD
-In the first dataset about education level and migration background you can see that a group consisting of both men and women was researched. All of the men and women are 15 years old and above. In the dataset you can see the relationship between different migration backgrounds with the highest level of education achieved. 
-=======
 In the first dataset about education level and migration background you can see that a group consisting of both men and women was researched. All of the men and women are 15 years old and above. In the dataset you can see the different migration backgrounds with the highest level of education achieved.
 
->>>>>>> cc150daee6ae76003b67aec53a923c7cca7159ca
-```{r echo=FALSE}
+```{r}
 summary(edu_mig_dataset)
 ```
 
@@ -93,9 +89,6 @@ summary(reg_edu_dataset)
 <<<<<<< HEAD
 
 ```{r}
-=======
-``` {r}
->>>>>>> cc150daee6ae76003b67aec53a923c7cca7159ca
 inline_code = TRUE
 ```
 
