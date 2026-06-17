@@ -22,6 +22,8 @@ remotes::install_github("ropensci/rnaturalearthhires")
 install.packages("tinytex")
 install.packages("gridExtra")
 install.packages("patchwork")
+install.packages("remotes")
+
 ```
 
 ```{r packages, echo=FALSE}
@@ -70,11 +72,13 @@ reg_edu_dataset <- read_xlsx("data/Regionale_kerncijfers_Nederland_04062026_1204
 
 In the first dataset about education level and migration background you can see that a group consisting of both men and women was researched. All of the men and women are 15 years old and above. In the dataset you can see the different migration backgrounds with the highest level of education achieved.
 
-```{r echo=FALSE}
+```{r}
 summary(edu_mig_dataset)
 ```
 
 ### Summary dataset on migration background percentage per region
+
+In this dataset you can see various types of descent as a percentage of the population of each region.
 
 ```{r echo=FALSE}
 summary(reg_mig_dataset)
@@ -82,7 +86,8 @@ summary(reg_mig_dataset)
 
 ### Summary dataset on education level per region
 
-```{r echo=FALSE}
+This dataset shows different education levels as a percentage of the population of the region. This is shown for 3 years for each region.
+```{r}
 summary(reg_edu_dataset)
 ```
 
@@ -108,7 +113,7 @@ Think of things like:
 
 ### Renaming unclear characters in edu_mig_dataset
 
-```{r data_cleaning, echo=FALSE}
+```{r data_cleaning_1, echo=FALSE}
 edu_mig_dataset <-read.csv("data/Jaar_bevolking_migratie_achtergrond.csv", sep=";")
 edu_mig_dataset$Geslacht <-replace(edu_mig_dataset$Geslacht,edu_mig_dataset$Geslacht == "T001038", "totaal mannen en vrouwen")
 
@@ -179,14 +184,14 @@ edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBeha
 
 ### Eliminating unnecessary observations and variables in edu_mig_dataset
 
-```{r data_cleaning, echo=FALSE}
+```{r data_cleaning_2, echo=FALSE}
 edu_mig_dataset_cl <- edu_mig_dataset %>% filter(Migratieachtergrond == "Totaal" | Migratieachtergrond == "Nederlandse achtergrond" | Migratieachtergrond == "Niet-westerse migratieachtergrond")
 edu_mig_dataset_cl <- edu_mig_dataset_cl %>% select(-Geslacht)
 ```
 
 ### Renaming inconsistent characters in reg_edu_dataset
 
-```{r data_cleaning, echo=FALSE}
+```{r data_cleaning_3, echo=FALSE}
 reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Zeeland (PV)", "Zeeland")
 reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Fryslân (PV)", "Friesland")
 reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Drenthe (PV)", "Drenthe")
@@ -203,14 +208,14 @@ reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`
 
 ### Eliminating unnecessary years in reg_edu_dataset
 
-```{r data_cleaning, echo=FALSE}
+```{r data_cleaning_4, echo=FALSE}
 reg_edu_dataset_cl <- reg_edu_dataset %>%
   filter(Perioden > 2023 & Perioden< 2025)
 ```
 
 ### Eliminating unnecessary variables in reg_mig_dataset
 
-```{r data_cleaning, echo=FALSE}
+```{r data_cleaning_5, echo=FALSE}
 reg_mig_dataset_cl <- reg_mig_dataset %>% select("Provincienaam", "% Herkomst Nederland", "% Herkomst buiten Europa")
 ```
 
