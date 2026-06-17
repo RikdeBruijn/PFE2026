@@ -379,7 +379,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 Comparison between the difference in education level between different ages, use dataset migration education and either a histogram or bar plot.
 
 ```{r visualise_subpopulations, echo=FALSE}
-ggplot(combined_var, aes(x = Leeftijd, y = percentage, fill = group)) + geom_col(position = "dodge", na.rm = TRUE, colour = "black") + scale_fill_manual(values = c("Dutch" = "lightpink", "Non-Western" = "#E75480")) + labs( title = "Proportion of people that have a hbo or wo bachelor per age group", y = "Percentage (of people)", x = "Age group") + theme_minimal()
+ggplot(combined_var, aes(x = Leeftijd, y = percentage, fill = group)) + geom_col(position = "dodge", na.rm = TRUE, colour = "black") + scale_fill_manual(values = c("Dutch" = "lightpink", "Non-Western" = "#E75480")) + labs( title = "Proportion of people that have obtained a hbo or wo bachelor", y = "Percentage (of people)", x = "Age group") + theme_minimal()
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
