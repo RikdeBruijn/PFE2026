@@ -51,6 +51,9 @@ Use APA referencing throughout your document. [Here's a link to some explanation
 
 A study by research agency SCALIQ involving 6409 secondary school students, suggests that students with Arabic first and/or last names are more likely to be placed at a lower educational level than equally intelligent student with European sounding names. About half of the students with Arabic names were placed half a school level lower. The researchers say that this may be a sign of inequality in education. However, the study only looks at intelligence and names. It did not look at other factors such as family income, home support or cultural background. The experts say that being placed in a lower school level that is too low can hurt students' education, confidence/motivation and career opportunities.
 
+
+In another study by KIS they researched whether students with a migration background in the Netherlands receive a lower educational recommendation than they deserve for their abilities. Based on quantitative analyses and interviews with teachers, students and parents, the researchers found just a little evidence of discrimination based on ethnicity. However factors such as Dutch language proficiency, home environment, classroom behavior and of course the perceptions of the teachers can influence the recommendations. This may negatively impact children with a different ethnic background.
+
 # Part 2 - Data Sourcing
 
 ## 2.1 Load in the data
