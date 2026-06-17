@@ -19,6 +19,7 @@ if (!requireNamespace("remotes", quietly = TRUE)) {
   install.packages("remotes")
 }
 remotes::install_github("ropensci/rnaturalearthhires")
+install.packages("tinytex")
 ```
 
 ```{r packages, echo=FALSE}
@@ -81,7 +82,7 @@ summary(reg_mig_dataset)
 summary(reg_edu_dataset)
 ```
 
-``` r
+``` {r}
 inline_code = TRUE
 ```
 
@@ -304,6 +305,9 @@ Compare/merge two maps, one with the level of education of a province and one wi
 ```{r}
 # Kolomnamen opslaan
 basis_col <- "Onderwijs|Naar woonregio|Hoogstbehaald onderwijsniveau|Basisonderwijs, vmbo, mbo1 (%)"
+
+nl_map_data  <- ne_countries(country = "Netherlands", returnclass = "sf")
+nl_provinces <- ne_states(country = "Netherlands", returnclass = "sf")
 
 # Herstel namen naar Nederlands
 nl_provinces$name <- recode(nl_provinces$name,
