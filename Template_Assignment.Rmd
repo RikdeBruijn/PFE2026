@@ -20,6 +20,8 @@ if (!requireNamespace("remotes", quietly = TRUE)) {
 }
 remotes::install_github("ropensci/rnaturalearthhires")
 install.packages("tinytex")
+install.packages("gridExtra")
+install.packages("patchwork")
 ```
 
 ```{r packages, echo=FALSE}
@@ -31,6 +33,8 @@ library(cbsodataR)
 library(sf)
 library(rnaturalearth)
 library(remotes)
+library(gridExtra)
+library(patchwork)
 
 ```
 
@@ -82,7 +86,7 @@ summary(reg_mig_dataset)
 summary(reg_edu_dataset)
 ```
 
-``` {r}
+```{r}
 inline_code = TRUE
 ```
 
@@ -303,9 +307,11 @@ ggplot(new_var_1, aes(x = jaar, y = pct, fill = niveau)) +
 Compare/merge two maps, one with the level of education of a province and one with the proportion of migrants/people with a migration background living there. use datasets on migration background per region and education level per region to make maps. requires separate package, preferably from CBS. test effe
 
 ```{r}
+
 # Kolomnamen opslaan
 basis_col <- "Onderwijs|Naar woonregio|Hoogstbehaald onderwijsniveau|Basisonderwijs, vmbo, mbo1 (%)"
 
+# Kaartdata
 nl_map_data  <- ne_countries(country = "Netherlands", returnclass = "sf")
 nl_provinces <- ne_states(country = "Netherlands", returnclass = "sf")
 
@@ -316,47 +322,36 @@ nl_provinces$name <- recode(nl_provinces$name,
   "North Holland" = "Noord-Holland"
 )
 
-# Join
-spatial_var_edu <- right_join(nl_provinces, reg_edu_dataset_cl, by = c("name" = "Regio's"))
 
-# Plot
-ggplot(spatial_var_edu) +
+spatial_var_edu <- right_join(nl_provinces, reg_edu_dataset_cl, by = c("name" = "Regio's"))
+spatial_var_mig <- right_join(nl_provinces, reg_mig_dataset_cl, by = c("name" = "Provincienaam"))
+
+# Plot 1
+plot_edu <- ggplot(spatial_var_edu) +
   geom_sf(aes(fill = .data[[basis_col]])) +
   scale_fill_gradient(low = "#fff7bc", high = "#d95f0e") +
   labs(
-    title = "Percentage of population with primary education or lower (per province)",
+    title = "Primary education or lower\nper province",
     fill  = "% Primary / vmbo / mbo1"
   ) +
   theme_void() +
-  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 10))
 
 
-
-
-# Laad kaartdata
-nl_map_data  <- ne_countries(country = "Netherlands", returnclass = "sf")
-nl_provinces <- ne_states(country = "Netherlands", returnclass = "sf")
-
-# Herstel namen naar Nederlands
-nl_provinces$name <- recode(nl_provinces$name,
-  "North Brabant" = "Noord-Brabant",
-  "South Holland" = "Zuid-Holland",
-  "North Holland" = "Noord-Holland"
-)
-
-# Join
-spatial_var_mig <- right_join(nl_provinces, reg_mig_dataset_cl, by = c("name" = "Provincienaam"))
-
-# Plot
-ggplot(spatial_var_mig) +
+plot_mig <- ggplot(spatial_var_mig) +
   geom_sf(aes(fill = `% Herkomst buiten Europa`)) +
   scale_fill_gradient(low = "#e8f5e9", high = "#1b5e20") +
   labs(
-    title = "Percentage of population with non-Western migration background",
+    title = "Non-Western migration background\nper province",
     fill  = "% Non-western"
   ) +
   theme_void() +
-  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 10))
+
+# Combineren
+combined <- plot_edu | plot_mig
+combined
+
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
@@ -376,7 +371,6 @@ Here you provide a description of why the plot above is relevant to your specifi
 Find some kind of event in order to show changes caused by this event: Analyze the relationship between two variables. will be a line graph, not sure which dataset yet.
 
 ```{r analysis, echo=FALSE}
-# Filter alleen basisonderwijs + niet-westerse achtergrond
 event_data <- new_var_1 %>%
   filter(
     niveau == "Basisonderwijs",
