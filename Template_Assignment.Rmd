@@ -280,7 +280,7 @@ ggplot(new_var_1, aes(x = jaar, y = pct, fill = niveau)) +
     title    = "Highest level of education based on migration background",
     subtitle = "Popultion 15 year of older, 2003–2020  |  source: CBS (EBB, tabel 82275NED)",
     x        = NULL,
-    y        = "share (%)",
+    y        = "population share (%)",
     fill     = "education level"
   ) +
   theme_minimal(base_size = 13) +
@@ -387,9 +387,9 @@ geom_point(color = "steelblue", size = 2) +
   annotate("text", x = 2006.2, y = max(event_data$pct),
            label = "introduction Wet inburgering (2006)", hjust = 0, size = 3.5) +
   labs(
-    title = " Share of people with non-western migrationbackground and with primary school as highest education level",
+    title = " Share of people with a non-western migrationbackground with primary school as there highest education level over the years",
     x     = "Year",
-    y     = "Percentage (%)"
+    y     = "Percentage of Non western migrants with primary school as highest education (%)"
   ) +
   scale_x_continuous(breaks = unique(event_data$jaar)) +
   theme_minimal() +
