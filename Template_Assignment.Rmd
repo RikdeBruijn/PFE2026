@@ -80,7 +80,7 @@ summary(reg_mig_dataset)
 summary(reg_edu_dataset)
 ```
 
-``` r
+``` {r}
 inline_code = TRUE
 ```
 
@@ -302,6 +302,9 @@ test effe
 # Kolomnamen opslaan
 basis_col <- "Onderwijs|Naar woonregio|Hoogstbehaald onderwijsniveau|Basisonderwijs, vmbo, mbo1 (%)"
 
+nl_map_data  <- ne_countries(country = "Netherlands", returnclass = "sf")
+nl_provinces <- ne_states(country = "Netherlands", returnclass = "sf")
+
 # Herstel namen naar Nederlands
 nl_provinces$name <- recode(nl_provinces$name,
   "North Brabant" = "Noord-Brabant",
@@ -381,7 +384,7 @@ ggplot(event_data, aes(x = jaar, y = pct)) +
 geom_line(color = "steelblue", linewidth = 1) +
 geom_point(color = "steelblue", size = 2) +
   geom_vline(xintercept = 2006, linetype = "dashed", color = "black") +
-  annotate("text", x = 2006.2, y = max(basis_data$pct),
+  annotate("text", x = 2006.2, y = max(event_data$pct),
            label = "introduction Wet inburgering (2006)", hjust = 0, size = 3.5) +
   labs(
     title = " Share of people with non-western migrationbackground and with primary school as highest education level",
