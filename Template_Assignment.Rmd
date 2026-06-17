@@ -19,6 +19,7 @@ if (!requireNamespace("remotes", quietly = TRUE)) {
   install.packages("remotes")
 }
 remotes::install_github("ropensci/rnaturalearthhires")
+install.packages("tinytex")
 ```
 
 ```{r packages, echo=FALSE}
