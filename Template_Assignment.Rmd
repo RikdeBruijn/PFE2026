@@ -1,5 +1,5 @@
 ---
-title: "Correlation between migration background and education level"
+title: "The relation between migration non-Western background and education level"
 author: "Tamara Bakker 2695715, Rik de Bruijn 2894496, Joep Hagendoorn 2893599, Lize den Hertog 2889649, Isabelle Stankovski 2883224"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -16,11 +16,14 @@ output: pdf_document
 #install.packages("sf")
 #install.packages("rnaturalearth")
 if (!requireNamespace("remotes", quietly = TRUE)) {
-  install.packages("remotes")}
-#remotes::install_github("ropensci/rnaturalearthhires")
-#install.packages("tinytex")
-#tinytex::install_tinytex(force=TRUE)
-#library(tinytex)
+  install.packages("remotes")
+}
+remotes::install_github("ropensci/rnaturalearthhires")
+install.packages("tinytex")
+install.packages("gridExtra")
+install.packages("patchwork")
+install.packages("remotes")
+
 ```
 
 ```{r packages, echo=FALSE}
@@ -32,6 +35,8 @@ library(cbsodataR)
 library(sf)
 library(rnaturalearth)
 library(remotes)
+library(gridExtra)
+library(patchwork)
 
 ```
 
@@ -88,8 +93,6 @@ This dataset shows different education levels as a percentage of the population 
 ```{r}
 summary(reg_edu_dataset)
 ```
-
-<<<<<<< HEAD
 
 ```{r}
 inline_code = TRUE
@@ -252,9 +255,22 @@ new_var_1 <- edu_mig_dataset_cl %>%
 Variable 2: Percentage of non-European migrants that have obtained a hbo or wo bachelor for different age groups in 2020
 
 ```{r gen_var2, echo=FALSE}
-new_var_2 <- edu_mig_dataset_cl %>% filter(Perioden == 2020 & Migratieachtergrond == "Niet-westerse migratieachtergrond", Leeftijd %in% c("25 tot 35 jaar", "35 tot 45 jaar", "45 tot 55 jaar", "55 tot 65 jaar", "65 tot 75 jaar", "75 jaar of ouder")) %>% group_by(Leeftijd, HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor") %>% summarise(high_education = sum(Bevolking_1, na.rm = TRUE), .groups = "drop") %>% group_by(Leeftijd) %>% mutate(perc = high_education / sum(high_education) * 100) %>% ungroup() 
+# Code for percentage per age group of non-Western migrants that have obtained a hbo or wo bachelor
+new_var_2 <- edu_mig_dataset_cl %>% filter(Perioden == 2020 & Migratieachtergrond == "Niet-westerse migratieachtergrond", Leeftijd %in% c("25 tot 35 jaar", "35 tot 45 jaar", "45 tot 55 jaar", "55 tot 65 jaar", "65 tot 75 jaar", "75 jaar of ouder")) %>% group_by(Leeftijd, HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor") %>% summarise(high_education_mig = sum(Bevolking_1, na.rm = TRUE), .groups = "drop") %>% group_by(Leeftijd) %>% mutate(percentage = high_education_mig / sum(high_education_mig) * 100) %>% ungroup() 
 new_var_2 <- new_var_2 %>% filter(`HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor"` == TRUE)
 new_var_2 <- new_var_2 %>% select(-`HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor"`)
+
+# Code for percentage per age group of Dutch people that have obtained a hbo or wo bachelor
+in_between_df <- edu_mig_dataset_cl %>% filter(Perioden == 2020 & Migratieachtergrond == "Nederlandse achtergrond", Leeftijd %in% c("25 tot 35 jaar", "35 tot 45 jaar", "45 tot 55 jaar", "55 tot 65 jaar", "65 tot 75 jaar", "75 jaar of ouder")) %>% group_by(Leeftijd, HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor") %>% summarise(high_education_nl = sum(Bevolking_1, na.rm = TRUE), .groups = "drop") %>% group_by(Leeftijd) %>% mutate(percentage = high_education_nl / sum(high_education_nl) * 100) %>% ungroup() 
+in_between_df <- in_between_df %>% filter(`HoogstBehaaldOnderwijsniveau == "Hbo-, wo-bachelor"` == TRUE)
+
+# Get them together in one dataset
+new_var_2 <- new_var_2 %>% mutate(group = "Non-Western")
+in_between_df <- in_between_df %>% mutate(group = "Dutch")
+combined_var <- bind_rows(new_var_2, in_between_df)
+
+# Clean the combined product
+combined_var <- combined_var %>% select(Leeftijd, percentage, group)
 ```
 
 ## 3.3 Visualize temporal variation
@@ -312,9 +328,11 @@ ggplot(new_var_1, aes(x = jaar, y = pct, fill = niveau)) +
 Compare/merge two maps, one with the level of education of a province and one with the proportion of migrants/people with a migration background living there. use datasets on migration background per region and education level per region to make maps. requires separate package, preferably from CBS. test effe
 
 ```{r}
+
 # Kolomnamen opslaan
 basis_col <- "Onderwijs|Naar woonregio|Hoogstbehaald onderwijsniveau|Basisonderwijs, vmbo, mbo1 (%)"
 
+# Kaartdata
 nl_map_data  <- ne_countries(country = "Netherlands", returnclass = "sf")
 nl_provinces <- ne_states(country = "Netherlands", returnclass = "sf")
 
@@ -325,47 +343,36 @@ nl_provinces$name <- recode(nl_provinces$name,
   "North Holland" = "Noord-Holland"
 )
 
-# Join
-spatial_var_edu <- right_join(nl_provinces, reg_edu_dataset_cl, by = c("name" = "Regio's"))
 
-# Plot
-ggplot(spatial_var_edu) +
+spatial_var_edu <- right_join(nl_provinces, reg_edu_dataset_cl, by = c("name" = "Regio's"))
+spatial_var_mig <- right_join(nl_provinces, reg_mig_dataset_cl, by = c("name" = "Provincienaam"))
+
+# Plot 1
+plot_edu <- ggplot(spatial_var_edu) +
   geom_sf(aes(fill = .data[[basis_col]])) +
   scale_fill_gradient(low = "#fff7bc", high = "#d95f0e") +
   labs(
-    title = "Percentage of population with primary education or lower (per province)",
+    title = "Primary education or lower\nper province",
     fill  = "% Primary / vmbo / mbo1"
   ) +
   theme_void() +
-  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 10))
 
 
-
-
-# Laad kaartdata
-nl_map_data  <- ne_countries(country = "Netherlands", returnclass = "sf")
-nl_provinces <- ne_states(country = "Netherlands", returnclass = "sf")
-
-# Herstel namen naar Nederlands
-nl_provinces$name <- recode(nl_provinces$name,
-  "North Brabant" = "Noord-Brabant",
-  "South Holland" = "Zuid-Holland",
-  "North Holland" = "Noord-Holland"
-)
-
-# Join
-spatial_var_mig <- right_join(nl_provinces, reg_mig_dataset_cl, by = c("name" = "Provincienaam"))
-
-# Plot
-ggplot(spatial_var_mig) +
+plot_mig <- ggplot(spatial_var_mig) +
   geom_sf(aes(fill = `% Herkomst buiten Europa`)) +
   scale_fill_gradient(low = "#e8f5e9", high = "#1b5e20") +
   labs(
-    title = "Percentage of population with non-Western migration background",
+    title = "Non-Western migration background\nper province",
     fill  = "% Non-western"
   ) +
   theme_void() +
-  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 10))
+
+# Combineren
+combined <- plot_edu | plot_mig
+combined
+
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
@@ -375,7 +382,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 Comparison between the difference in education level between different ages, use dataset migration education and either a histogram or bar plot.
 
 ```{r visualise_subpopulations, echo=FALSE}
-ggplot(new_var_2, aes(x = Leeftijd, y = perc)) + geom_col(na.rm = TRUE, fill = "pink", colour = "black") + labs( title = "Participation high education per age group", y = "Percentage", x = "Age group") + theme_minimal()
+ggplot(combined_var, aes(x = Leeftijd, y = percentage, fill = group)) + geom_col(position = "dodge", na.rm = TRUE, colour = "black") + scale_fill_manual(values = c("Dutch" = "lightpink", "Non-Western" = "#E75480")) + labs( title = "Proportion of people that have obtained a hbo or wo bachelor", y = "Percentage (of people)", x = "Age group") + theme_minimal()
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
@@ -385,7 +392,6 @@ Here you provide a description of why the plot above is relevant to your specifi
 Find some kind of event in order to show changes caused by this event: Analyze the relationship between two variables. will be a line graph, not sure which dataset yet.
 
 ```{r analysis, echo=FALSE}
-# Filter alleen basisonderwijs + niet-westerse achtergrond
 event_data <- new_var_1 %>%
   filter(
     niveau == "Basisonderwijs",
