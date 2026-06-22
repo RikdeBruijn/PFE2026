@@ -1,5 +1,5 @@
 ---
-title: "The relation between migration non-Western background and education level"
+title: "The relationship between a non-Western migration background and education level"
 author: "Tamara Bakker 2695715, Rik de Bruijn 2894496, Joep Hagendoorn 2893599, Lize den Hertog 2889649, Isabelle Stankovski 2883224"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -15,15 +15,14 @@ output: pdf_document
 #install.packages("cbsodataR")
 #install.packages("sf")
 #install.packages("rnaturalearth")
-if (!requireNamespace("remotes", quietly = TRUE)) {
-  install.packages("remotes")
-}
-remotes::install_github("ropensci/rnaturalearthhires")
-install.packages("tinytex")
-install.packages("gridExtra")
-install.packages("patchwork")
-install.packages("remotes")
-
+#if (!requireNamespace("remotes", quietly = TRUE)) {
+#  install.packages("remotes") }
+#remotes::install_github("ropensci/rnaturalearthhires")
+#install.packages("tinytex")
+#install.packages("gridExtra")
+#install.packages("patchwork")
+#install.packages("remotes")
+#install.packages("renv")
 ```
 
 ```{r packages, echo=FALSE}
@@ -37,7 +36,7 @@ library(rnaturalearth)
 library(remotes)
 library(gridExtra)
 library(patchwork)
-
+library(renv)
 ```
 
 # Title Page
@@ -50,15 +49,13 @@ Fatima Amankour
 
 # Part 1 - Identify a Social Problem
 
-Use APA referencing throughout your document. [Here's a link to some explanation.](https://www.mendeley.com/guides/apa-citation-guide/)
-
 ## 1.1 Describe the Social Problem
 
 A study by research agency SCALIQ involving 6409 secondary school students, suggests that students with Arabic first and/or last names are more likely to be placed at a lower educational level than equally intelligent student with European sounding names. About half of the students with Arabic names were placed half a school level lower. The researchers say that this may be a sign of inequality in education. This is a problem because it can hurt students' education, career opportunities and motivation. However, the study only looks at intelligence and names. It did not look at other factors such as family income, home support or cultural background. The experts say that being placed in a lower school level that is too low can hurt students' education, confidence/motivation and career opportunities.
 
 In another study by KIS they researched whether students with a migration background in the Netherlands receive a lower educational recommendation than they deserve for their abilities. Based on quantitative analyses and interviews with teachers, students and parents, the researchers found just a little evidence of discrimination based on ethnicity. However, factors such as Dutch language proficiency, home environment, classroom behavior and of course the perceptions of the teachers can influence the recommendations. This may negatively impact children with a different ethnic background.
 
-These studies demonstrate that, to some extent, non-Western migrants in the Netherlands seem to obtain a lower level of education than the Dutch. While causal relationships are harder to determine, this gap in education is a social problem as it fuels income inequality, inequality in general, and disadvantages people with a migration background. The current politics and the widespread attention in the Netherlands for migrants, especially non-Western migrants, make this a relevant problem. 
+These studies demonstrate that, to some extent, non-Western migrants in the Netherlands seem to obtain a lower level of education than the Dutch. While causal relationships are harder to determine, this gap in education is a social problem as it fuels income inequality, inequality in general, and disadvantages people with a migration background. The current politics and the widespread attention in the Netherlands for migrants, especially non-Western migrants, make this a relevant problem.
 
 # Part 2 - Data Sourcing
 
@@ -74,7 +71,8 @@ reg_edu_dataset <- read_xlsx("data/Regionale_kerncijfers_Nederland_04062026_1204
 
 ### Summary dataset on education level and migration background
 
-In the first dataset, which contains data on different education levels and migration background, a group consisting of both men and women was researched. All participants were 15 years or older. The dataset contains observations from 2003 to 2020 and contains data about the migration background, age, and level of education of participants for each year. It was sourced from the CBS (2021). 
+In the first dataset, which contains data on different education levels and migration background, a group consisting of both men and women was researched. All participants were 15 years or older. The dataset contains observations from 2003 to 2020 and contains data about the migration background, age, and level of education of participants for each year. It was sourced from the CBS (2021).
+
 ```{r}
 summary(edu_mig_dataset)
 ```
@@ -89,7 +87,7 @@ summary(reg_mig_dataset)
 
 ### Summary dataset on education level per region
 
-This dataset contains information on the participation by people in different levels of education, expressed as a percentage, for each province. It contains data for the years 2023, 2024, and 2025. It was sourced from (geen idee) 
+This dataset contains information on the participation by people in different levels of education, expressed as a percentage, for each province. It contains data for the years 2023, 2024, and 2025. It was sourced from CBS (2025).
 
 ```{r}
 summary(reg_edu_dataset)
@@ -101,9 +99,9 @@ inline_code = TRUE
 
 ## 2.3 Describe the type of variables included
 
-The first dataset mentioned, edu_mig_dataset, contains demographic and SES information. The demographic information consists of age, sex, and background and the socioeconomic status information consists of education level. The two central variables in this dataset are background and education level, however, the additional information provides possibilities for more thorough analysis. The information has been obtained through the use of surveys (CBS, 2022). The dataset largely consists of characters, with the exception of the Bevolking_1 column, which gives a numerical value for each row representing the amount of people that had the same results. Age, which can be a numerical value, has become an ordinal character as ages are grouped for every ten years. Education level is ordinal as well, but all other characters remain nominal. 
+The first dataset mentioned, edu_mig_dataset, contains demographic and SES information. The demographic information consists of age, sex, and background and the socioeconomic status information consists of education level. The two central variables in this dataset are background and education level, however, the additional information provides possibilities for more thorough analysis. The information has been obtained through the use of surveys (CBS, 2022). The dataset largely consists of characters, with the exception of the Bevolking_1 column, which gives a numerical value for each row representing the amount of people that had the same results. Age, which can be a numerical value, has become an ordinal character as ages are grouped for every ten years. Education level is ordinal as well, but all other characters remain nominal.
 
-The other two datasets, reg_mig_dataset and reg_edu_dataset, are very similar in format and variables. Both contain regional information for each of their variables, but they differ in the type of information. The first dataset contains demographic information, numerical values representing which percentage of the population has which background for each province. The second dataset contains SES information, also numerical values representing percentages, only now they represent the distribution of the population over different education levels for each province. The dataset on education has a column for each level of education. Both datasets have been sourced with open source data and/or administrative sources (CBS, 2025; AlleCijfers, 2026). 
+The other two datasets, reg_mig_dataset and reg_edu_dataset, are very similar in format and variables. Both contain regional information for each of their variables, but they differ in the type of information. The first dataset contains demographic information, numerical values representing which percentage of the population has which background for each province. The second dataset contains SES information, also numerical values representing percentages, only now they represent the distribution of the population over different education levels for each province. The dataset on education has a column for each level of education. Both datasets have been sourced with open source data and/or administrative sources (CBS, 2025; AlleCijfers, 2026).
 
 # Part 3 - Quantifying
 
@@ -111,7 +109,7 @@ The other two datasets, reg_mig_dataset and reg_edu_dataset, are very similar in
 
 ### Renaming unclear characters in edu_mig_dataset
 
-The size of the dataset on education level and different migration backgrounds was so significant that all character values were replaced with codes. In order to have a meaningful dataset, all these codes were replaced with the character value the cells previously contained. 
+The size of the dataset on education level and different migration backgrounds was so significant that all character values were replaced with codes. In order to have a meaningful dataset, all these codes were replaced with the character value the cells previously contained.
 
 ```{r data_cleaning_1, echo=FALSE}
 edu_mig_dataset <-read.csv("data/Jaar_bevolking_migratie_achtergrond.csv", sep=";")
@@ -193,7 +191,7 @@ edu_mig_dataset_cl <- edu_mig_dataset_cl %>% select(-Geslacht)
 
 ### Renaming inconsistent characters in reg_edu_dataset
 
-The dataset containing data on education levels for each province is to be used to compare regional education levels with the regional migration levels (reg_mig_dataset). However, these two datasets have used different names to address the same provinces, which can cause complications. Therefore, the names in the reg_edu_dataset have been replaced with those of their counterparts in the reg_mig_dataset to ensure uniformity. 
+The dataset containing data on education levels for each province is to be used to compare regional education levels with the regional migration levels (reg_mig_dataset). However, these two datasets have used different names to address the same provinces, which can cause complications. Therefore, the names in the reg_edu_dataset have been replaced with those of their counterparts in the reg_mig_dataset to ensure uniformity.
 
 ```{r data_cleaning_3, echo=FALSE}
 reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`Regio's`== "Zeeland (PV)", "Zeeland")
@@ -212,7 +210,7 @@ reg_edu_dataset$`Regio's`<- replace(reg_edu_dataset$`Regio's`, reg_edu_dataset$`
 
 ### Eliminating unnecessary years in reg_edu_dataset
 
-The second change made to this dataset is the elimination of observations corresponding to the years 2023 and 2025. 2023 was eliminated since this dataset, as previously mentioned, will later be used for comparison and the dataset it will be compared to only contains the data for one year. 2025 was eliminated because it contained solely NA's, which made comparison impossible. 
+The second change made to this dataset is the elimination of observations corresponding to the years 2023 and 2025. 2023 was eliminated since this dataset, as previously mentioned, will later be used for comparison and the dataset it will be compared to only contains the data for one year. 2025 was eliminated because it contained solely NA's, which made comparison impossible.
 
 ```{r data_cleaning_4, echo=FALSE}
 reg_edu_dataset_cl <- reg_edu_dataset %>%
@@ -257,6 +255,10 @@ new_var_1 <- edu_mig_dataset_cl %>%
   mutate(pct = bevolking / sum(bevolking) * 100) %>%
   ungroup()
 
+# Change names visible in graph to English
+
+new_var_1$Migratieachtergrond <- replace(new_var_1$Migratieachtergrond, new_var_1$Migratieachtergrond == "Nederlandse achtergrond", "Dutch background")
+new_var_1$Migratieachtergrond <- replace(new_var_1$Migratieachtergrond, new_var_1$Migratieachtergrond == "Niet-westerse migratieachtergrond", "Non-Western migration background")
 ```
 
 ### Variable 2: Percentage of people that have obtained a hbo- or wo-bachelor for different age groups in 2020
@@ -319,7 +321,7 @@ ggplot(new_var_1, aes(x = jaar, y = pct, fill = niveau)) +
   ) +
   labs(
     title    = "Highest level of education based on migration background",
-    subtitle = "Popultion 15 year of older, 2003–2020  |  source: CBS (EBB, tabel 82275NED)",
+    subtitle = "Population 15 year of older, 2003–2020  |  source: CBS (EBB, tabel 82275NED)",
     x        = NULL,
     y        = "population share (%)",
     fill     = "education level"
@@ -400,8 +402,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 ggplot(combined_var, aes(x = Leeftijd, y = percentage, fill = group)) + geom_col(position = "dodge", na.rm = TRUE, colour = "black") + scale_fill_manual(values = c("Dutch" = "lightpink", "Non-Western" = "#E75480")) + labs( title = "Proportion of people that have obtained a hbo or wo bachelor", y = "Percentage (of people)", x = "Age group") + theme_minimal()
 ```
 
-The bar plot pictured above visualizes the percentage of people, both Dutch and with a migration background, that have obtained a hbo- or wo-bachelor in 2020 per age group. This is relevant to the social problem analysis, as it demonstrates not only the difference between Dutch people and non-Western migrants in their participation in higher education, but also whether this differs between different ages. 
-It is clear that, in general, the percentage of people hbo- or wo-bachelor has a negative correlation with age, demonstrating that the younger generations are becoming increasingly high educated. However, the proportional difference between Dutch people and non-Western migrants seems to stay approximately seven percent, except for the 55 to 65 years group. These findings show that the gap does not seem to be closing in the younger generations.
+The bar plot pictured above visualizes the percentage of people, both Dutch and with a migration background, that have obtained a hbo- or wo-bachelor in 2020 per age group. This is relevant to the social problem analysis, as it demonstrates not only the difference between Dutch people and non-Western migrants in their participation in higher education, but also whether this differs between different ages. It is clear that, in general, the percentage of people hbo- or wo-bachelor has a negative correlation with age, demonstrating that the younger generations are becoming increasingly high educated. However, the proportional difference between Dutch people and non-Western migrants seems to stay approximately seven percent, except for the 55 to 65 years group. These findings show that the gap does not seem to be closing in the younger generations.
 
 ## 3.6 Event analysis
 
@@ -442,7 +443,8 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 Discuss the findings from all the analyses and draw somewhat of a conclusion whether our hypothesis was right. (text needs to be removed)
 
-# Part 5 
+# Part 5
+
 Reproducibility make sure that if someone were to reproduce our work, a change in packages would not matter as the information of which packages we used when is clear. (text needs to be removed)
 
 ## 5.1 Github repository link
@@ -451,8 +453,8 @@ Provide the link to your PUBLIC repository here: ... (text needs to be removed)
 
 ## 5.2 Reference list
 
-AlleCijfers (2026, June 8). "Ranglijst: autochtoon en migratieachtergrond van de bewoners per provincie in Nederland". Retrieved June 8, 2026, from: https://allecijfers.nl/ranglijst/autochtoon-en-migratieachtergrond-per-provincie-in-nederland/#google_vignette  
+AlleCijfers (2026, June 8). "Ranglijst: autochtoon en migratieachtergrond van de bewoners per provincie in Nederland". Retrieved June 8, 2026, from: <https://allecijfers.nl/ranglijst/autochtoon-en-migratieachtergrond-per-provincie-in-nederland/#google_vignette>
 
-CBS (2025, November 7). "Bevolking; hoogstbehaald onderwijsniveau en regio". Retrieved June 8, 2026, from: https://opendata.cbs.nl/#/CBS/nl/dataset/85525NED/table 
+CBS (2025, November 7). "Bevolking; hoogstbehaald onderwijsniveau en regio". Retrieved June 8, 2026, from: <https://opendata.cbs.nl/#/CBS/nl/dataset/85525NED/table>
 
-CBS (2021, November 16). "Bevolking; onderwijsniveau en -richting 2003-2021". Retrieved June 10, 2026, from: https://opendata.cbs.nl/#/CBS/nl/dataset/82275NED/table?ts=1782126231056&fromstatweb=true 
+CBS (2021, November 16). "Bevolking; onderwijsniveau en -richting 2003-2021". Retrieved June 10, 2026, from: <https://opendata.cbs.nl/#/CBS/nl/dataset/82275NED/table?ts=1782126231056&fromstatweb=true>
