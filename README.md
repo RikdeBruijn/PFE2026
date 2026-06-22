@@ -51,10 +51,10 @@ People with non Western migration backgrounds in the Netherlands have lower educ
 The educational gap is largest among older age groups (75+: ~10% Dutch vs. ~3% non Western hold a bachelor's degree), but becomes smaller for younger generations (25–35: ~32% Dutch vs. ~27% non-Western). This suggests younger people with non Western backgrounds are increasingly obtaining higher education yet a persistent gap of roughly 7 percentage points remains across most age groups.
 
 **Policy impact: Wet inburgering (2006)**  
-The share of non-Western migrants with only primary education as their highest level declined steeply after the introduction of the *Wet inburgering* in 2006. However, the trend levelled off at around 18–20%, suggesting the policy had a limited but not transformative effect.
+The share of non Western migrants with only primary education as their highest level declined steeply after the introduction of the *Wet inburgering* in 2006. However, the trend levelled off at around 18–20%, suggesting the policy had a limited but not transformative effect.
 
 **Regional variation**  
-Non-Western migrants are concentrated primarily in Randstad provinces (Noord-Holland, Zuid-Holland, Utrecht). However, the educational gap exists across all provinces  including those with smaller non-Western populations  indicating that geographic concentration alone does not explain the inequality.
+Non Western migrants are concentrated primarily in Randstad provinces (Noord-Holland, Zuid-Holland, Utrecht). However, the educational gap exists across all provinces  including those with smaller non-Western populations  indicating that geographic concentration alone does not explain the inequality.
 
 
 ## References
