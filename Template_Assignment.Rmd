@@ -289,7 +289,7 @@ combined_var$Leeftijd <- replace(combined_var$Leeftijd, combined_var$Leeftijd ==
 
 ## 3.3 Visualize temporal variation
 
-Make own variable that shows our relation and plot it over time. Line graph with other version of migration-education dataset.
+Make own variable that shows our relation and plot it over time. Line graph with other version of migration-education dataset. (text needs to be removed)
 
 ```{r echo=FALSE}
 
@@ -332,14 +332,11 @@ ggplot(new_var_1, aes(x = jaar, y = pct, fill = niveau)) +
     plot.title       = element_text(face = "bold"),
     panel.spacing    = unit(2, "lines")
   )
-
-
-
 ```
 
 ## 3.4 Visualize spatial variation
 
-Compare/merge two maps, one with the level of education of a province and one with the proportion of migrants/people with a migration background living there. use datasets on migration background per region and education level per region to make maps. requires separate package, preferably from CBS. test effe
+Compare/merge two maps, one with the level of education of a province and one with the proportion of migrants/people with a migration background living there. use datasets on migration background per region and education level per region to make maps. requires separate package, preferably from CBS. test effe (text needs to be removed)
 
 ```{r}
 # Kolomnamen opslaan
@@ -394,7 +391,7 @@ combined
 
 ```
 
-Here you provide a description of why the plot above is relevant to your specific social problem. 
+Here you provide a description of why the plot above is relevant to your specific social problem. (text needs to be removed)
 
 ## 3.5 Visualize sub-population variation
 
@@ -407,7 +404,7 @@ It is clear that, in general, the percentage of people hbo- or wo-bachelor has a
 
 ## 3.6 Event analysis
 
-Find some kind of event in order to show changes caused by this event: Analyze the relationship between two variables. will be a line graph, not sure which dataset yet.
+Find some kind of event in order to show changes caused by this event: Analyze the relationship between two variables. will be a line graph, not sure which dataset yet. (text needs to be removed)
 
 ```{r analysis, echo=FALSE}
 event_data <- new_var_1 %>%
@@ -436,21 +433,21 @@ geom_point(color = "steelblue", size = 2) +
   )
 ```
 
-Here you provide a description of why the plot above is relevant to your specific social problem.
+Here you provide a description of why the plot above is relevant to your specific social problem. (text needs to be removed)
 
 # Part 4 - Discussion
 
 ## 4.1 Discuss your findings
 
-Discuss the findings from all the analyses and draw somewhat of a conclusion whether our hypothesis was right. 
+Discuss the findings from all the analyses and draw somewhat of a conclusion whether our hypothesis was right. (text needs to be removed)
 
 # Part 5 
-Reproducibility make sure that if someone were to reproduce our work, a change in packages would not matter as the information of which packages we used when is clear. 
+Reproducibility make sure that if someone were to reproduce our work, a change in packages would not matter as the information of which packages we used when is clear. (text needs to be removed)
 
 ## 5.1 Github repository link
 
-Provide the link to your PUBLIC repository here: ...
+Provide the link to your PUBLIC repository here: ... (text needs to be removed)
 
 ## 5.2 Reference list
 
-Use APA referencing throughout your document.
+CBS. (2022). 
