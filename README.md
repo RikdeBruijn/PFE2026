@@ -56,23 +56,6 @@ The share of non-Western migrants with only primary education as their highest l
 **Regional variation**  
 Non-Western migrants are concentrated primarily in Randstad provinces (Noord-Holland, Zuid-Holland, Utrecht). However, the educational gap exists across all provinces — including those with smaller non-Western populations — indicating that geographic concentration alone does not explain the inequality.
 
-## Policy Implication
-
-The findings suggest that investments in Dutch language support (tutoring and language programs) in primary and secondary schools may help reduce educational gaps, given that Dutch language proficiency is a key factor in academic success.
-
-## How to Reproduce
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/RikdeBruijn/PFE2026
-   ```
-2. Open `analysis.Rmd` in RStudio.
-3. Place all datasets in the `data/` folder.
-4. Install required packages (listed at the top of the `.Rmd` file) and knit the document.
-
-**Required R packages:** `tidyverse`, `readxl`, `cbsodataR`, `sf`, `rnaturalearth`, `rnaturalearthhires`, `gridExtra`, `patchwork`, `renv`
-
-
 
 ## References
 
