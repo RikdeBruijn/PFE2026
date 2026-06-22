@@ -293,19 +293,37 @@ combined_var$Leeftijd <- replace(combined_var$Leeftijd, combined_var$Leeftijd ==
 ## 3.3 Visualize temporal variation
 
 ```{r echo=FALSE}
-
 # Bevolking kolom naar numeriek
 edu_mig_dataset$Bevolking_1 <- as.numeric(trimws(edu_mig_dataset$Bevolking_1))
 
+# Vertaal onderwijs niveaus naar Engels
+new_var_1$niveau <- recode(new_var_1$niveau,
+  "Basisonderwijs"                 = "Primary education",
+  "Vmbo-g/t, havo-, vwo-onderbouw" = "Lower secondary",
+  "Mbo2 en mbo3"                   = "MBO 2/3 (vocational)",
+  "Mbo4"                           = "MBO 4 (vocational)",
+  "Havo, vwo"                      = "Upper secondary",
+  "Hbo-, wo-bachelor"              = "Bachelor",
+  "Hbo-,wo-master,doctor"          = "Master / PhD"
+)
+
+# Vertaal migratieachtergrond naar Engels
+new_var_1$Migratieachtergrond <- recode(new_var_1$Migratieachtergrond,
+  "Zonder migratieachtergrond" = "No migration background",
+  "Met migratieachtergrond"    = "Migration background",
+  "Westers"                    = "Western",
+  "Niet-westers"               = "Non-Western"
+)
+
 # Kleuren van laag naar hoog
 kleuren <- c(
-  "Basisonderwijs"                 = "#d73027",
-  "Vmbo-g/t, havo-, vwo-onderbouw" = "#f46d43",
-  "Mbo2 en mbo3"                   = "#fdae61",
-  "Mbo4"                           = "#fee090",
-  "Havo, vwo"                      = "#9ecae1",
-  "Hbo-, wo-bachelor"              = "#74add1",
-  "Hbo-,wo-master,doctor"          = "#4575b4"
+  "Primary education"    = "#d73027",
+  "Lower secondary"      = "#f46d43",
+  "MBO 2/3 (vocational)" = "#fdae61",
+  "MBO 4 (vocational)"   = "#fee090",
+  "Upper secondary"      = "#9ecae1",
+  "Bachelor"             = "#74add1",
+  "Master / PhD"         = "#4575b4"
 )
 
 ggplot(new_var_1, aes(x = jaar, y = pct, fill = niveau)) +
@@ -321,8 +339,8 @@ ggplot(new_var_1, aes(x = jaar, y = pct, fill = niveau)) +
     title    = "Highest level of education based on migration background",
     subtitle = "Population 15 year of older, 2003–2020  |  source: CBS (EBB, tabel 82275NED)",
     x        = NULL,
-    y        = "population share (%)",
-    fill     = "education level"
+    y        = "Population share (%)",
+    fill     = "Education level"
   ) +
   theme_minimal(base_size = 13) +
   theme(
@@ -415,6 +433,7 @@ The bar plot pictured above visualizes the percentage of people, both Dutch and 
 Find some kind of event in order to show changes caused by this event: Analyze the relationship between two variables. will be a line graph, not sure which dataset yet. (text needs to be removed)
 
 ```{r analysis, echo=FALSE}
+
 event_data <- new_var_1 %>%
   filter(
     niveau == "Basisonderwijs",
@@ -447,20 +466,15 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 ## 4.1 Discuss your findings
 
-Our analysis shows that people with non-Western migration backgrounds in the Netherlands have lower educational levels than those with Western or Dutch backgrounds. 
-Our data shows that non-Western migrants make up a much larger share of people with only basic education, while university degrees (HBO/WO) are much more common among Dutch-born people. We can also conclude that the age gap in education is the largest among older age groups (75+ years: 10% Dutch vs. 3% non-Western), but becomes smaller for younger generations (25-35 years: 32% Dutch vs. 27% non Western). This shows that younger people with non-Western backgrounds are getting more university degrees than older generations did. The trend for non-Western migrants with only primary education as the highest achieved level, shows an initial decline in 2006 after the introduction of the Wet inburgering policy. The trend then levels off at around 18%-20%, which means that this policy only helped a little. Our map with geographic differences across provinces shows variation in where non-Western migrants live. But the educational gap exists in all regions, even where non-Western populations are smaller. This means that location alone does not explain the educational inequality. 
-For policy makers this suggests that investments in Dutch language lessons/tutoring programs in primary and secondary school may reduce these educational gaps. Because Dutch language skills are essential for success in secondary school and university exams.
-
+Our analysis shows that people with non-Western migration backgrounds in the Netherlands have lower educational levels than those with Western or Dutch backgrounds. Our data shows that non-Western migrants make up a much larger share of people with only basic education, while university degrees (HBO/WO) are much more common among Dutch-born people. We can also conclude that the age gap in education is the largest among older age groups (75+ years: 10% Dutch vs. 3% non-Western), but becomes smaller for younger generations (25-35 years: 32% Dutch vs. 27% non Western). This shows that younger people with non-Western backgrounds are getting more university degrees than older generations did. The trend for non-Western migrants with only primary education as the highest achieved level, shows an initial decline in 2006 after the introduction of the Wet inburgering policy. The trend then levels off at around 18%-20%, which means that this policy only helped a little. Our map with geographic differences across provinces shows variation in where non-Western migrants live. But the educational gap exists in all regions, even where non-Western populations are smaller. This means that location alone does not explain the educational inequality. For policy makers this suggests that investments in Dutch language lessons/tutoring programs in primary and secondary school may reduce these educational gaps. Because Dutch language skills are essential for success in secondary school and university exams.
 
 # Part 5
 
 Reproducibility make sure that if someone were to reproduce our work, a change in packages would not matter as the information of which packages we used when is clear. (text needs to be removed)
 
-
 ## 5.1 Github repository link
 
-Provide the link to your PUBLIC repository here: ... (text needs to be removed)
-https://github.com/RikdeBruijn/PFE2026
+Provide the link to your PUBLIC repository here: ... (text needs to be removed) <https://github.com/RikdeBruijn/PFE2026>
 
 ## 5.2 Reference list
 
