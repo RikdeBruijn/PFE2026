@@ -6,7 +6,7 @@
 
 ## Introduction
 
-A study by research agency **SCALIQ** involving 6,409 secondary school students suggests that students with Arabic first and/or last names are more likely to be placed at a lower educational level than equally intelligent students with European sounding names. About half of the students with Arabic names were placed approximately half a school level lower. The researchers indicate this may be a sign of inequality in education  a problem that can negatively affect students' educational trajectories, career opportunities, and motivation.
+A study by research agency **SCALIQ** involving 6,409 secondary school students suggests that students with Arabic first and/or last names are more likely to be placed at a lower educational level than equally intelligent students with European sounding names. About half of the students with Arabic names were placed approximately half a school level lower. The researchers indicate this may be a sign of inequality in education a problem that can negatively affect students' educational trajectories, career opportunities, and motivation.
 
 However, the SCALIQ study only examined intelligence scores and names, without accounting for other potentially relevant factors such as family income, home support, or cultural background.
 
