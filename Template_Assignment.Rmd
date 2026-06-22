@@ -450,4 +450,8 @@ Provide the link to your PUBLIC repository here: ... (text needs to be removed)
 
 ## 5.2 Reference list
 
-CBS. (2022). 
+AlleCijfers (2026, June 8). "Ranglijst: autochtoon en migratieachtergrond van de bewoners per provincie in Nederland". Retrieved June 8, 2026, from: https://allecijfers.nl/ranglijst/autochtoon-en-migratieachtergrond-per-provincie-in-nederland/#google_vignette  
+
+CBS (2025, November 7). "Bevolking; hoogstbehaald onderwijsniveau en regio". Retrieved June 8, 2026, from: https://opendata.cbs.nl/#/CBS/nl/dataset/85525NED/table 
+
+CBS (2021, November 16). "Bevolking; onderwijsniveau en -richting 2003-2021". Retrieved June 10, 2026, from: https://opendata.cbs.nl/#/CBS/nl/dataset/82275NED/table?ts=1782126231056&fromstatweb=true 
