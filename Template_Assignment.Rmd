@@ -440,14 +440,16 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 ## 4.1 Discuss your findings
 
-Discuss the findings from all the analyses and draw somewhat of a conclusion whether our hypothesis was right. (text needs to be removed)
+Our analysis shows that people with non-Western migration backgrounds in the Netherlands have lower educational levels than those with Western or Dutch backgrounds. 
+Our data shows that non-Western migrants make up a much larger share of people with only basic education, while university degrees (HBO/WO) are much more common among Dutch-born people. We can also conclude that the age gap in education is the largest among older age groups (75+ years: 10% Dutch vs. 3% non-Western), but becomes smaller for younger generations (25-35 years: 32% Dutch vs. 27% non Western). This shows that younger people with non-Western backgrounds are getting more university degrees than older generations did. The trend for non-Western migrants with only primary education as the highest achieved level, shows an initial decline in 2006 after the introduction of the Wet inburgering policy. The trend then levels off at around 18%-20%, which means that this policy only helped a little. Our map with geographic differences across provinces shows variation in where non-Western migrants live. But the educational gap exists in all regions, even where non-Western populations are smaller. This means that location alone does not explain the educational inequality. 
+For policy makers this suggests that investments in Dutch language lessons/tutoring programs in primary and secondary school may reduce these educational gaps. Because Dutch language skills are essential for success in secondary school and university exams.
 
 # Part 5 
-Reproducibility make sure that if someone were to reproduce our work, a change in packages would not matter as the information of which packages we used when is clear. (text needs to be removed)
 
 ## 5.1 Github repository link
 
 Provide the link to your PUBLIC repository here: ... (text needs to be removed)
+https://github.com/RikdeBruijn/PFE2026
 
 ## 5.2 Reference list
 
