@@ -6,14 +6,15 @@
 
 ## Introduction
 
-A study by research agency **SCALIQ** involving 6,409 secondary school students suggests that students with Arabic first and/or last names are more likely to be placed at a lower educational level than equally intelligent students with European sounding names. About half of the students with Arabic names were placed approximately half a school level lower. The researchers indicate this may be a sign of inequality in education a problem that can negatively affect students' educational trajectories, career opportunities, and motivation.
+A study by research agency SCALIQ involving 6,409 secondary school students suggests that students with Arabic first and/or last names are more likely to be placed at a lower educational level than equally intelligent students with European sounding names. About half of the students with Arabic names were placed approximately half a school level lower. The researchers indicate this may be a sign of inequality in education a problem that can negatively affect students' educational trajectories, career opportunities, and motivation.
 
 However, the SCALIQ study only examined intelligence scores and names, without accounting for other potentially relevant factors such as family income, home support, or cultural background.
 
-A second study by **KIS (Kennisplatform Integratie & Samenleving)** investigated whether students with a migration background in the Netherlands receive lower educational recommendations than their abilities warrant. Based on quantitative analyses and interviews with teachers, students, and parents, the researchers found limited direct evidence of ethnicity based discrimination. Nevertheless, factors such as Dutch language proficiency, home environment, classroom behavior, and teacher perceptions were found to potentially influence recommendations  and may disproportionately disadvantage children from non Western backgrounds.
+A second study by KIS (Kennisplatform Integratie & Samenleving) investigated whether students with a migration background in the Netherlands receive lower educational recommendations than their abilities warrant. Based on quantitative analyses and interviews with teachers, students, and parents, the researchers found limited direct evidence of ethnicity based discrimination. Nevertheless, factors such as Dutch language proficiency, home environment, classroom behavior, and teacher perceptions were found to potentially influence recommendations and may disproportionately disadvantage children from non-Western backgrounds.
 
 Together, these studies suggest that non-Western migrants in the Netherlands tend to attain lower levels of education than their Dutch peers. While establishing direct causal relationships is difficult, this educational gap represents a meaningful social problem: it contributes to income inequality, reinforces broader patterns of disadvantage, and limits opportunities for people with a migration background. Given the current political and public discourse around migration in the Netherlands, this issue is both timely and socially relevant.
 
+*Note on terminology: Throughout this paper, references to "migrants" or "people with a migration background" refer specifically to non-Western migrants. Furthermore, the terms "non-Western" and "non-European" are used interchangeably, as the differences between these categories are minimal in the context of the studies discussed.*
 
 
 ## Datasets
