@@ -353,11 +353,13 @@ ggplot(new_var_1, aes(x = jaar, y = pct, fill = niveau)) +
   )
 ```
 
-In the two plots above is shown how the education level of the groups have changed over time. The left plot shows how the education level of the people with a Dutch background changed over time, and the right plot shows the same for people with a non-Western immigration background. For the creation of these plots the first variable created earlier was used. 
+In the two plots above is shown how the education level of the groups have changed over time. The left plot shows how the education level of the people with a Dutch background changed over time, and the right plot shows the same for people with a non-Western migration background. For the creation of these plots the first variable created earlier was used. 
 
 The plot for the people with a Dutch background shows that over time a bigger share of the population obtained a degree from a university or HBO. This is for mostly the bachelor degrees, but also for the master- and doctor degrees there is an increase of the population share. The biggest decrease is seen for the group of people that have a lower secondary education or Vmbo-g/t.
 
-The plot for the people with a non-Western immigration background shows that over time a much bigger share of the population got a higher degree than in previous years. The biggest increase is seen in the group of people that have a bachelor degree. There is also a big decrease in the group of people that only finished primary education.
+The plot for the people with a non-Western migration background shows that over time a much bigger share of the population got a higher degree than in previous years. The biggest increase is seen in the group of people that have a bachelor degree. There is also a big decrease in the group of people that only finished primary education.
+
+These plots show that the education level of people with a non-Western migration background is becoming closer to the the education level of people with a Dutch background. 
 
 ## 3.4 Visualize spatial variation
 
@@ -414,11 +416,11 @@ combined
 
 ```
 
+The left map shows the percentage of the population to have either only received primary education, vmbo-g/t or lower secondary education. The map shows that specifically in North-Holland, Utrecht and Groningen the education level is higher than in other parts of the country.
 
-Compare/merge two maps, one with the level of education of a province and one with the proportion of migrants/people with a migration background living there. use datasets on migration background per region and education level per region to make maps. requires separate package, preferably from CBS. test effe (text needs to be removed)
-Here you provide a description of why the plot above is relevant to your specific social problem. (text needs to be removed)
+The map on the right shows the percentage of the population who have a non-Western migration background. The map shows that the percentage is the highest in the provinces that are a part of the Randstad. This shows that migration is mostly centered around these parts of the country. The biggest cities of the country are also in the provinces that have the highest percentage. 
 
-The left map above shows the percentage of people 
+
 
 ## 3.5 Visualize sub-population variation
 
@@ -429,8 +431,6 @@ ggplot(combined_var, aes(x = Leeftijd, y = percentage, fill = group)) + geom_col
 The bar plot pictured above visualizes the percentage of people, both Dutch and with a migration background, that have obtained a hbo- or wo-bachelor in 2020 per age group. This is relevant to the social problem analysis, as it demonstrates not only the difference between Dutch people and non-Western migrants in their participation in higher education, but also whether this differs between different ages. It is clear that, in general, the percentage of people hbo- or wo-bachelor has a negative correlation with age, demonstrating that the younger generations are becoming increasingly high educated. However, the proportional difference between Dutch people and non-Western migrants seems to stay approximately seven percent, except for the 55 to 65 years group. These findings show that the gap does not seem to be closing in the younger generations.
 
 ## 3.6 Event analysis
-
-Find some kind of event in order to show changes caused by this event: Analyze the relationship between two variables. will be a line graph, not sure which dataset yet. (text needs to be removed)
 
 ```{r analysis, echo=FALSE}
 
@@ -460,7 +460,10 @@ geom_point(color = "steelblue", size = 2) +
   )
 ```
 
+Find some kind of event in order to show changes caused by this event: Analyze the relationship between two variables. will be a line graph, not sure which dataset yet. (text needs to be removed)
 Here you provide a description of why the plot above is relevant to your specific social problem. (text needs to be removed)
+
+
 
 # Part 4 - Discussion
 
@@ -483,3 +486,5 @@ AlleCijfers (2026, June 8). "Ranglijst: autochtoon en migratieachtergrond van de
 CBS (2025, November 7). "Bevolking; hoogstbehaald onderwijsniveau en regio". Retrieved June 8, 2026, from: <https://opendata.cbs.nl/#/CBS/nl/dataset/85525NED/table>
 
 CBS (2021, November 16). "Bevolking; onderwijsniveau en -richting 2003-2021". Retrieved June 10, 2026, from: <https://opendata.cbs.nl/#/CBS/nl/dataset/82275NED/table?ts=1782126231056&fromstatweb=true>
+
+Wet van 30 november 2006, houdende regels inzake inburgering in de Nederlandse samenleving (Wet inburgering). (2006). In Staatsblad Van Het Koninkrijk Der Nederlanden (No. 625). Staatsblad van het Koninkrijk der Nederlanden. <https://zoek.officielebekendmakingen.nl/stb-2006-625.pdf
