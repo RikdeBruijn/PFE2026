@@ -292,8 +292,6 @@ combined_var$Leeftijd <- replace(combined_var$Leeftijd, combined_var$Leeftijd ==
 
 ## 3.3 Visualize temporal variation
 
-Make own variable that shows our relation and plot it over time. Line graph with other version of migration-education dataset. (text needs to be removed)
-
 ```{r echo=FALSE}
 # Bevolking kolom naar numeriek
 edu_mig_dataset$Bevolking_1 <- as.numeric(trimws(edu_mig_dataset$Bevolking_1))
@@ -354,6 +352,11 @@ ggplot(new_var_1, aes(x = jaar, y = pct, fill = niveau)) +
     panel.spacing    = unit(2, "lines")
   )
 ```
+For the creation of the temporal variation the edu_mig_dataset was used. There were two plots created in which is shown how the education level of the groups have changed over time. The left plot shows how the education level of the people with a Dutch background changed over time, and the right plot shows the same for people with a non-Western immigration background. For the creation of these plots the first variable created earlier was used. 
+
+The plot for the people with a Dutch background shows that over time a bigger share of the population obtained a degree from a university or HBO. This is for mostly the bachelor degrees, but also for the master- and doctor degrees there is an increase of the population share. The biggest decrease is seen for the group of people that have a lower secondary education or Vmbo-g/t.
+
+The plot for the people with a non-Western immigration background shows that over time a much bigger share of the population got a higher degree than in previous years. The biggest increase is seen in the group of people that have a bachelor degree. There is also a big decrease in the group of people that only finished primary education.
 
 ## 3.4 Visualize spatial variation
 
