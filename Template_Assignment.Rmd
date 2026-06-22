@@ -447,7 +447,8 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 Discuss the findings from all the analyses and draw somewhat of a conclusion whether our hypothesis was right. 
 
-# Part 5 - Reproducibility make sure that if someone were to reproduce our work, a change in packages would not matter as the information of which packages we used when is clear. 
+# Part 5 
+Reproducibility make sure that if someone were to reproduce our work, a change in packages would not matter as the information of which packages we used when is clear. 
 
 ## 5.1 Github repository link
 
