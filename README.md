@@ -20,9 +20,6 @@ Together, these studies suggest that non-Western migrants in the Netherlands ten
 
 *Note on terminology: Throughout this paper, references to "migrants" or "people with a migration background" refer specifically to non-Western migrants. Furthermore, the terms "non-Western" and "non-European" are used interchangeably, as the differences between these categories are minimal in the context of the studies discussed.*
 
----
-
-De noot staat onderaan als afzonderlijke alinea, wat gebruikelijk is bij dit soort terminologische verduidelijkingen. Als je wil kan ik het ook als voetnoot formuleren of ergens anders in de tekst verwerken.
 
 ## Datasets
 
