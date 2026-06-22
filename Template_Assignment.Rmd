@@ -25,7 +25,7 @@ output: pdf_document
 #install.packages("renv")
 ```
 
-```{r packages, echo=FALSE}
+```{r packages, include=FALSE}
 require(tidyverse)
 require(rmarkdown)
 require(yaml)
@@ -39,7 +39,7 @@ library(patchwork)
 library(renv)
 ```
 
-# Title Page
+# The relationship between a non-Western migration background and education level
 
 Tamara Bakker, Rik de Bruijn, Joep Hagendoorn, Lize den Hertog and Isabelle Stankovski
 
@@ -73,7 +73,7 @@ reg_edu_dataset <- read_xlsx("data/Regionale_kerncijfers_Nederland_04062026_1204
 
 In the first dataset, which contains data on different education levels and migration background, a group consisting of both men and women was researched. All participants were 15 years or older. The dataset contains observations from 2003 to 2020 and contains data about the migration background, age, and level of education of participants for each year. It was sourced from the CBS (2021).
 
-```{r}
+```{r echo=FALSE}
 summary(edu_mig_dataset)
 ```
 
@@ -89,11 +89,11 @@ summary(reg_mig_dataset)
 
 This dataset contains information on the participation by people in different levels of education, expressed as a percentage, for each province. It contains data for the years 2023, 2024, and 2025. It was sourced from CBS (2025).
 
-```{r}
+```{r echo=FALSE}
 summary(reg_edu_dataset)
 ```
 
-```{r}
+```{r include=FALSE}
 inline_code = TRUE
 ```
 
@@ -363,7 +363,7 @@ These plots show that the education level of people with a non-Western migration
 
 ## 3.4 Visualize spatial variation
 
-```{r}
+```{r echo=FALSE}
 # Kolomnamen opslaan
 basis_col <- "Onderwijs|Naar woonregio|Hoogstbehaald onderwijsniveau|Basisonderwijs, vmbo, mbo1 (%)"
 
@@ -460,10 +460,9 @@ geom_point(color = "steelblue", size = 2) +
   )
 ```
 
-Find some kind of event in order to show changes caused by this event: Analyze the relationship between two variables. will be a line graph, not sure which dataset yet. (text needs to be removed)
-Here you provide a description of why the plot above is relevant to your specific social problem. (text needs to be removed)
+In the graph above the share of people with a non-Western migration background and with primary school as their highest education level is shown. On the 30th of november in 2006 there was a new law "Wet inburgering" and article 1d of this law was about compulsory school age (“Wet Van 30 November 2006, Houdende Regels Inzake Inburgering in De Nederlandse Samenleving (Wet Inburgering),” 2006). This law stated the compulsory school age for people who are staying in the Netherlands would be the same as that for Dutch citizens. This event is shown in the graph with the dashed line in 2006. 
 
-
+The graph shows that the share of people only having primary education declines significantly throughout the years. It is also shown that right after the introduction of this law there is a steep decline. Thus people with a non-Western migration background have a higher education level. 
 
 # Part 4 - Discussion
 
