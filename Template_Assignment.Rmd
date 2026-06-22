@@ -80,7 +80,7 @@ summary(edu_mig_dataset)
 
 ### Summary dataset on migration background percentage per region
 
-This dataset contains information of the proportion of people with different backgrounds living in each province for 2026. It was sourced from AlleCijfers (2026).
+This dataset contains information of the percentage distribution of people with different backgrounds living in each province for 2026. It was sourced from AlleCijfers (2026).
 
 ```{r echo=FALSE}
 summary(reg_mig_dataset)
@@ -100,12 +100,9 @@ inline_code = TRUE
 
 ## 2.3 Describe the type of variables included
 
-Think of things like:
+The first dataset mentioned, edu_mig_dataset, contains demographic and SES information. The demographic information consists of age, sex, and background and the socioeconomic status information consists of education level. The two central variables in this dataset are background and education level, however, the additional information provides possibilities for more thorough analysis. The information has been obtained through the use of surveys (CBS, 2022). The dataset largely consists of characters, with the exception of the Bevolking_1 column, which gives a numerical value for each row representing the amount of people that had the same results. Age, which can be a numerical value, has become an ordinal character as ages are grouped for every ten years. Education level is ordinal as well, but all other characters remain nominal. 
 
-- Do the variables contain health information or SES information?
-
-- Have they been measured by interviewing individuals or is the data coming from administrative sources?
-
+The other two datasets, reg_mig_dataset and reg_edu_dataset, are very similar in format and variables. Both contain regional information for each of their variables, but they differ in the type of information. The first dataset contains demographic information, numerical values representing which percentage of the population has which background for each province. The second dataset contains SES information, also numerical values representing percentages, only now they represent the distribution of the population over different education levels for each province. The dataset on education has a column for each level of education. Both datasets have been sourced with open source data and/or administrative sources (CBS, 2025; AlleCijfers, 2026). 
 
 # Part 3 - Quantifying
 
