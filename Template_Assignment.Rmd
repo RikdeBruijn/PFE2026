@@ -109,7 +109,7 @@ The other two datasets, reg_mig_dataset and reg_edu_dataset, are very similar in
 
 ### Renaming unclear characters in edu_mig_dataset
 
-The size of the dataset on education level and different migration backgrounds was so significant that all character values were replaced with codes. In order to have a meaningful dataset, all these codes were replaced with the character value the cells previously contained.
+The size of the dataset on education level and different migration backgrounds was so significant that all character values were replaced with codes. In order to have a meaningful dataset, all these codes were replaced with the character value the cells previously contained. This was done with the use of the legend provided by CBS.
 
 ```{r data_cleaning_1, echo=FALSE}
 edu_mig_dataset <-read.csv("data/Jaar_bevolking_migratie_achtergrond.csv", sep=";")
@@ -182,7 +182,7 @@ edu_mig_dataset$HoogstBehaaldOnderwijsniveau<-replace(edu_mig_dataset$HoogstBeha
 
 ### Eliminating unnecessary observations and variables in edu_mig_dataset
 
-Furthermore, the same dataset contained various variables and observations that were irrelevant to the analysis, like migration background data for singular countries and a column for sex, which only contained "total women and men" for all observations. By removing these unnecessary elements, the dataset is easier to use and has become one-fourth its original size.
+Furthermore, the same dataset contained various variables and observations that were irrelevant to the analysis, like migration background data for singular countries and a column for sex, which only contained "total women and men" for all observations. By removing these unnecessary elements, the dataset is easier to use and has become one-fourth of its original size.
 
 ```{r data_cleaning_2, echo=FALSE}
 edu_mig_dataset_cl <- edu_mig_dataset %>% filter(Migratieachtergrond == "Totaal" | Migratieachtergrond == "Nederlandse achtergrond" | Migratieachtergrond == "Niet-westerse migratieachtergrond")
@@ -229,7 +229,7 @@ reg_mig_dataset_cl <- reg_mig_dataset %>% select("Provincienaam", "% Herkomst Ne
 
 ### Variable 1: Percentage of the total of Dutch people and non-Western migrants in each level of education
 
-This variable was taken from the cleaned version of the edu_mig_dataset. For the purposes of comparison, this variable was created to demonstrate how Dutch people and non-Western migrants are distributed across different levels of education and how this changes over time. In order to avoid bias because of group size, since there are more Dutch people than migrants, the total of Dutch people for each year was calculated and then the percentage proportion of Dutch people in each education level was calculated. The same was done for non-Western migrants. This way it became clear how each group is distributed across the different levels of education. This resulted in the dataset new_var_2.
+This variable was taken from the cleaned version of the edu_mig_dataset. For the purposes of comparison, this variable was created to demonstrate how Dutch people and non-Western migrants are distributed across different levels of education and how this changes over time. In order to avoid bias because of group size, since there are more Dutch people than migrants, the total of Dutch people for each year was calculated and then the percentage proportion of Dutch people in each education level was calculated. The same was done for non-Western migrants. This way it became clear how each group is distributed across the different levels of education. This resulted in the dataset new_var_1.
 
 ```{r gen_var1, echo=FALSE}
 new_var_1 <- edu_mig_dataset_cl %>%
@@ -263,7 +263,7 @@ new_var_1$Migratieachtergrond <- replace(new_var_1$Migratieachtergrond, new_var_
 
 ### Variable 2: Percentage of people that have obtained a hbo- or wo-bachelor for different age groups in 2020
 
-The second variable has also been created with data from the cleaned edu_mig_dataset. This variable was created with the purpose of visualizing sub-population variation, specifically the difference between age groups. The most recent year has been picked to create this variable, which was 2020. A hbo- or wo-bachelor has been selected because it qualifies as a high education. The data was grouped by age and migration background, excluding 15 to 25 year olds, since they would give a distorted image, as a part of this group is too young to obtain a this level of education. Then a total of people per age group was computed, which was then used to calculate the percentage of their age group that obtained a hbo- or wo-bachelor. This resulted in a dataset called combined_var.
+The second variable has also been created with data from the cleaned edu_mig_dataset. This variable was created with the purpose of visualizing sub-population variation, specifically the difference between age groups. The most recent year has been picked to create this variable, which was 2020. A hbo- or wo-bachelor has been selected because it qualifies as a high education. The data was grouped by age and migration background, excluding 15 to 25 year olds, since they would give a distorted image, as a part of this group is too young to obtain this level of education. Then a total of people per age group was computed, which was then used to calculate the percentage of their age group that obtained a hbo- or wo-bachelor. This resulted in a dataset called combined_var.
 
 ```{r gen_var2, echo=FALSE}
 # Code for percentage per age group of non-Western migrants that have obtained a hbo or wo bachelor
@@ -524,10 +524,9 @@ CBS (2025, November 7). "Bevolking; hoogstbehaald onderwijsniveau en regio". Ret
 
 CBS (2021, November 16). "Bevolking; onderwijsniveau en -richting 2003-2021". Retrieved June 10, 2026, from: <https://opendata.cbs.nl/#/CBS/nl/dataset/82275NED/table?ts=1782126231056&fromstatweb=true>
 
+Kind met Arabische naam krijgt vaak lager schooladvies dan even slim kind met Nederlandse naam. (2025, februari). NU.NL. Geraadpleegd op 17 juni 2026, van <https://www.nu.nl/binnenland/6347333/kind-met-arabische-naam-krijgt-vaak-lager-schooladvies-dan-even-slim-kind-met-nederlandse-naam.html>
 
 Van Rooijen, M., De Winter-Koçak, S., Day, M., & Jonkman, J. (2019). IS HET SCHOOLADVIES GEKLEURD? In Kennisplatfom Intergratie & Samenleving. Geraadpleegd op 17 juni 2026, <https://www.kis.nl/sites/default/files/2022-06/418134_schooladviezen.pdf>
-
-Kind met Arabische naam krijgt vaak lager schooladvies dan even slim kind met Nederlandse naam. (2025, februari). NU.NL. Geraadpleegd op 17 juni 2026, van <https://www.nu.nl/binnenland/6347333/kind-met-arabische-naam-krijgt-vaak-lager-schooladvies-dan-even-slim-kind-met-nederlandse-naam.html>
 
 Wet van 30 november 2006, houdende regels inzake inburgering in de Nederlandse samenleving (Wet inburgering). (2006). In Staatsblad Van Het Koninkrijk Der Nederlanden (No. 625). Staatsblad van het Koninkrijk der Nederlanden. <https://zoek.officielebekendmakingen.nl/stb-2006-625.pdf>
 
