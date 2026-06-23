@@ -371,16 +371,29 @@ basis_col <- "Onderwijs|Naar woonregio|Hoogstbehaald onderwijsniveau|Basisonderw
 
 nl_provinces <- ne_states(country = "Netherlands", returnclass = "sf")
 nl_provinces <- nl_provinces[!nl_provinces$name %in% c("St. Eustatius", "Saba"), ]
+lakes <- ne_download(
+  scale = 10,
+  type = "lakes",
+  category = "physical",
+  returnclass = "sf")
 
 # Crop
-nl_provinces <- st_crop(nl_provinces, xmin = 3.2, xmax = 7.3, ymin = 50.7, ymax = 53.6)
+nl_provinces <- st_crop(nl_provinces, lakes, xmin = 3.2, xmax = 7.3, ymin = 50.7, ymax = 53.6)
+sf_use_s2(FALSE)
+bbox_nl <- st_bbox(c(
+  xmin = 3.2,
+  xmax = 7.3,
+  ymin = 50.7,
+  ymax = 53.6
+), crs = st_crs(lakes))
 
+lakes_nl <- st_crop(lakes, bbox_nl)
 # Herstel namen naar Nederlands
 nl_provinces$name <- recode(nl_provinces$name,
   "North Brabant" = "Noord-Brabant",
   "South Holland" = "Zuid-Holland",
-  "North Holland" = "Noord-Holland"
-)
+  "North Holland" = "Noord-Holland")
+
 
 # Joins
 spatial_var_edu <- right_join(nl_provinces, reg_edu_dataset_cl, by = c("name" = "Regio's"))
@@ -388,7 +401,10 @@ spatial_var_mig <- right_join(nl_provinces, reg_mig_dataset_cl, by = c("name" = 
 
 # Plot 1
 plot_edu <- ggplot(spatial_var_edu) +
-  geom_sf(aes(fill = .data[[basis_col]])) +
+  geom_sf(aes(fill = .data[[basis_col]])) + geom_sf(data = lakes_nl, 
+        fill = "#FFFFFF",
+        color = NA,
+        inherit.aes = FALSE) +
   scale_fill_gradient(low = "#fff7bc", high = "#d95f0e") +
   labs(
     title = "Primary education or lower\nper province",
@@ -399,7 +415,10 @@ plot_edu <- ggplot(spatial_var_edu) +
 
 # Plot 2
 plot_mig <- ggplot(spatial_var_mig) +
-  geom_sf(aes(fill = `% Herkomst buiten Europa`)) +
+  geom_sf(aes(fill = `% Herkomst buiten Europa`)) + geom_sf(data = lakes_nl,
+        fill = "#FFFFFF",
+        color = NA,
+        inherit.aes = FALSE) +
   scale_fill_gradient(low = "#e8f5e9", high = "#1b5e20") +
   labs(
     title = "Non-Western migration background\nper province",
@@ -471,7 +490,21 @@ The graph shows that the share of people only having primary education declines 
 
 ## 4.1 Discuss your findings
 
-Our analysis shows that people with non-Western migration backgrounds in the Netherlands have lower educational levels than those with Western or Dutch backgrounds. Our data shows that non-Western migrants make up a much larger share of people with only basic education, while university degrees (HBO/WO) are much more common among Dutch-born people. We can also conclude that the age gap in education is the largest among older age groups (75+ years: 10% Dutch vs. 3% non-Western), but becomes smaller for younger generations (25-35 years: 32% Dutch vs. 27% non Western). This shows that younger people with non-Western backgrounds are getting more university degrees than older generations did. The trend for non-Western migrants with only primary education as the highest achieved level, shows an initial decline in 2006 after the introduction of the Wet inburgering policy. The trend then levels off at around 18%-20%, which means that this policy only helped a little. Our map with geographic differences across provinces shows variation in where non-Western migrants live. But the educational gap exists in all regions, even where non-Western populations are smaller. This means that location alone does not explain the educational inequality. For policy makers this suggests that investments in Dutch language lessons/tutoring programs in primary and secondary school may reduce these educational gaps. Because Dutch language skills are essential for success in secondary school and university exams.
+The results of the analysis seem to indicate that there is a relationship between a non-Western migration background and the level of education the average person obtains. This relation is negative, as the presence of a non-Western migration background in general seems to correspond with lower average levels of education. The data show that non-Western migrants make up a much larger share of people with only primary or lower level education, while most Dutch people move beyond these levels of education. The temporal visualization does demonstrate that this educational gap is becoming smaller. In 2003, primary education was the highest education for 27% of migrants and 13% of Dutch people. In 2020, these percentages shifted to 16% and 8% respectively, decreasing the gap with 42.9%. The gaps between other levels of education have moved similarly in this time frame, demonstrating that the problem is shifting.
+
+Geographically, the social problem does not seem to be location bound. When comparing a graph in which the proportion of people that have a low education per province with the proportion of non-Western migrants per province, the results do not seem to overlap, while other results indicate that this relation is existent. The primary explanation is, as mentioned before, that both migrants and highly educated people seem to concentrate around big cities, as they possess the most housing and career opportunities. Moreover, this visualization cannot be used to produce a correct relationship on its own, as many more variables need to be considered. It is merely a graphical comparison to evaluate whether the relation as described, affects the geographical distribution as well.
+
+Furthermore, the sub-population visualization demonstrated a trend of younger people becoming increasingly educated, with the percentage of non-Western migrants and Dutch people that have obtained a hbo, or wo bachelor being 3.7% and 10.2% for ages 75 and older, while being 27.2% and 32.9% for ages 25 to 35. The gap in between backgrounds, however, seems to stay in between five to seven percent. There seems to be a small decrease in the gap in between generations, approximately 0.8%, but whether this indicates a trend of progress is difficult to conclude.
+
+The trend for non-Western migrants with only primary education as the highest achieved level, shows an initial decline in 2006 after the introduction of the Wet inburgering policy. The trend then levels off at around 18%-20%, which means that this policy only helped a little. 
+
+In conclusion, analysis shows that people with a non-Western migration background on average obtain a lower education in comparison to a native Dutch person. However, this educational gap is evidently decreasing over time. The sources of this inequality could be many as discussed in Part 1, for example a language barrier, a lack of education in the country of origin, or discrimination in the system. The results show that these problems can be solved, as the gap is decreasing, posing a possibility for the government to aid and speed up the process of equality in schooling with initiatives like extra Dutch classes to overcome the language barrier and extra defenses against discrimination.
+
+## 4.2 Limitations of results
+
+The analysis that resulted in these results was limited, so some limitations need to be addressed. First and foremost, the relationship that these results demonstrate is not proven to be causal and not intended to be interpreted that way. It is very likely that a confounding variable is present, like the sources of the educational gap as mentioned before, that lead to this gap, or create a large part of it. 
+
+Another limitation is the source of one of the datasets, the dataset on migration background and education (edu_mig_dataset). This dataset has been constructed by the CBS through the use of the working population survey. This survey excludes all people in institutions or care homes, which excludes refuge centers (CBS, n.d.). This leads to a slightly distorted image as some non-Western migrants are not represented in the data.
 
 # Part 5 Reproducibility 
 
@@ -485,8 +518,10 @@ A renv lockfile was made to ensure reproducibility of the entire project. It can
 
 AlleCijfers (2026, June 8). "Ranglijst: autochtoon en migratieachtergrond van de bewoners per provincie in Nederland". Retrieved June 8, 2026, from: <https://allecijfers.nl/ranglijst/autochtoon-en-migratieachtergrond-per-provincie-in-nederland/#google_vignette>
 
+CBS (n.d.). "Enquête beroepsbevolking (EBB)". Retrieved June 22, 2026, from: <https://www.cbs.nl/nl-nl/onze-diensten/methoden/onderzoeksomschrijvingen/korte-onderzoeksomschrijvingen/enquete-beroepsbevolking--ebb--> 
+
 CBS (2025, November 7). "Bevolking; hoogstbehaald onderwijsniveau en regio". Retrieved June 8, 2026, from: <https://opendata.cbs.nl/#/CBS/nl/dataset/85525NED/table>
 
 CBS (2021, November 16). "Bevolking; onderwijsniveau en -richting 2003-2021". Retrieved June 10, 2026, from: <https://opendata.cbs.nl/#/CBS/nl/dataset/82275NED/table?ts=1782126231056&fromstatweb=true>
 
-Wet van 30 november 2006, houdende regels inzake inburgering in de Nederlandse samenleving (Wet inburgering). (2006). In Staatsblad Van Het Koninkrijk Der Nederlanden (No. 625). Staatsblad van het Koninkrijk der Nederlanden. <https://zoek.officielebekendmakingen.nl/stb-2006-625.pdf
+Wet van 30 november 2006, houdende regels inzake inburgering in de Nederlandse samenleving (Wet inburgering). (2006). In Staatsblad Van Het Koninkrijk Der Nederlanden (No. 625). Staatsblad van het Koninkrijk der Nederlanden. <https://zoek.officielebekendmakingen.nl/stb-2006-625.pdf>
