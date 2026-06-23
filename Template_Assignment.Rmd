@@ -363,7 +363,7 @@ These plots show that the education level of people with a non-Western migration
 
 ## 3.4 Visualize spatial variation
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning=FALSE}
 # Kolomnamen opslaan
 basis_col <- "Onderwijs|Naar woonregio|Hoogstbehaald onderwijsniveau|Basisonderwijs, vmbo, mbo1 (%)"
 
